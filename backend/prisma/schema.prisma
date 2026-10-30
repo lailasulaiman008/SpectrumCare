@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String?
+  email     String   @unique
+  password  String
+  children  Child[]
+  createdAt DateTime @default(now())
+}
+
+model Child {
+  id           String        @id @default(uuid())
+  name         String
+  ageMonths    Int
+  gender       String?
+  userId       String
+  user         User          @relation(fields: [userId], references: [id])
+  screenings   Screening[]
+  gameSessions GameSession[]
+  createdAt    DateTime      @default(now())
+}
+
+model Screening {
+  id            String   @id @default(uuid())
+  childId       String
+  child         Child    @relation(fields: [childId], references: [id])
+  answers       String   // JSON string: { q1: true, q2: false, ... }
+  mchatScore    Int      // 0-20 at-risk answer count
+  riskLevel     String   // LOW, MEDIUM, HIGH
+  aiProbability Float?   // 0.0-1.0 from AI model
+  shapData      String?  // JSON string: SHAP values array
+  createdAt     DateTime @default(now())
+}
+
+model GameSession {
+  id                String   @id @default(uuid())
+  childId           String
+  child             Child    @relation(fields: [childId], references: [id])
+  gameType          String   // MATCH_FACE, ODD_ONE_OUT, TAP_COLOR
+  accuracy          Float    // 0.0-1.0
+  avgResponseTimeMs Int
+  totalRounds       Int
+  correctRounds     Int
+  rounds            String   // JSON string: [{ correct: bool, responseTimeMs: int }]
+  playedAt          DateTime @default(now())
+}

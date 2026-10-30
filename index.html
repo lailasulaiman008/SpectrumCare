@@ -1,0 +1,3706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpectrumCare | Early Developmental Support</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff", "surface-container-high": "#ebe8e2",
+                        "primary-fixed": "#aff0d3", "secondary-fixed-dim": "#ffba44", "inverse-primary": "#94d4b8",
+                        "on-error-container": "#93000a", "inverse-on-surface": "#f3f0eb", "on-tertiary-fixed": "#400100",
+                        "on-primary": "#ffffff", "error": "#ba1a1a", "background": "#f8fbf9", "on-tertiary": "#ffffff",
+                        "tertiary-container": "#99281a", "tertiary": "#780f05", "primary-container": "#1a5c46",
+                        "on-tertiary-fixed-variant": "#891c10", "on-secondary-fixed-variant": "#614000",
+                        "on-primary-fixed-variant": "#09513c", "secondary-fixed": "#ffddaf",
+                        "surface-container-highest": "#e5e2dc", "surface-variant": "#e5e2dc",
+                        "on-surface-variant": "#404944", "surface-container": "#eef4f0",
+                        "surface-container-low": "#f2f8f5", "tertiary-fixed": "#ffdad4", "primary": "#004431",
+                        "on-background": "#0d1f1a", "on-secondary-container": "#6b4800", "surface-tint": "#2a6952",
+                        "surface-dim": "#dcdad4", "error-container": "#ffdad6", "on-secondary-fixed": "#281800",
+                        "on-primary-container": "#92d2b6", "on-error": "#ffffff", "tertiary-fixed-dim": "#ffb4a7",
+                        "secondary": "#805600", "on-tertiary-container": "#ffb2a5", "outline-variant": "#c8d5ce",
+                        "surface": "#f8fbf9", "on-primary-fixed": "#002116", "outline": "#708a7e",
+                        "surface-bright": "#f8fbf9", "secondary-container": "#ffb21d", "on-surface": "#0d1f1a",
+                        "on-secondary": "#ffffff", "primary-fixed-dim": "#94d4b8", "inverse-surface": "#2a3330"
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2.5rem", "full": "9999px" },
+                    fontFamily: {
+                        "headline": ["Nunito", "sans-serif"], "serif": ["DM Serif Display", "serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"], "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════
+       PREMIUM VISUAL REDESIGN — CSS LAYER
+       Inspired by: HeartForce (warmth, depth, medical authority)
+                    athenahealth (corporate polish, smooth transitions)
+       ═══════════════════════════════════════════════════════ -->
+    <style>
+        /* ── Base Reset & Typography ──────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f8fbf9;
+            color: #0d1f1a;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'DM Serif Display', serif !important;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f8fbf9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #2EAD7A, #004431);
+            border-radius: 10px;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       ANIMATION KEYFRAMES
+       ═══════════════════════════════════════════════════════ */
+        @keyframes heroFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pageFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes orbDrift1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(24px, -32px) scale(1.08) rotate(5deg);
+            }
+
+            66% {
+                transform: translate(-16px, 18px) scale(0.94) rotate(-3deg);
+            }
+        }
+
+        @keyframes orbDrift2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-28px, 22px) scale(1.1);
+            }
+        }
+
+        @keyframes orbDrift3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            40% {
+                transform: translate(18px, 26px) scale(1.05);
+            }
+
+            80% {
+                transform: translate(-10px, -12px) scale(0.97);
+            }
+        }
+
+        @keyframes shimmerBtn {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(46, 173, 122, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 0 12px rgba(46, 173, 122, 0.15);
+            }
+        }
+
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(36px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-32px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(32px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.88);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes statCount {
+            from {
+                opacity: 0;
+                transform: translateY(16px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes barGrow {
+            from {
+                transform: scaleY(0);
+                transform-origin: bottom;
+            }
+
+            to {
+                transform: scaleY(1);
+                transform-origin: bottom;
+            }
+        }
+
+        @keyframes underlineSlide {
+            from {
+                transform: scaleX(0);
+            }
+
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes particleDrift {
+            0% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-120px) translateX(30px) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes borderGlow {
+
+            0%,
+            100% {
+                border-color: rgba(46, 173, 122, 0.2);
+            }
+
+            50% {
+                border-color: rgba(46, 173, 122, 0.6);
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       PAGE ROUTING
+       ═══════════════════════════════════════════════════════ */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: pageFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       SCROLL-TRIGGERED REVEAL CLASSES
+       ═══════════════════════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays */
+        .delay-1 {
+            transition-delay: 0.08s !important;
+        }
+
+        .delay-2 {
+            transition-delay: 0.18s !important;
+        }
+
+        .delay-3 {
+            transition-delay: 0.28s !important;
+        }
+
+        .delay-4 {
+            transition-delay: 0.40s !important;
+        }
+
+        .delay-5 {
+            transition-delay: 0.52s !important;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       HERO — Inspired by HeartForce deep navy + warm glow
+       ═══════════════════════════════════════════════════════ */
+        .hero-gradient {
+            background: linear-gradient(145deg,
+                    #020d08 0%,
+                    #041f13 18%,
+                    #083526 38%,
+                    #0a2840 68%,
+                    #061A10 100%);
+            position: relative;
+        }
+
+        /* Animated gradient mesh overlay */
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(46, 173, 122, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 70% at 80% 20%, rgba(10, 40, 64, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 50% 50%, rgba(240, 165, 0, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Hero orbs — richer, more atmospheric */
+        .orb-1 {
+            background: radial-gradient(circle, rgba(46, 173, 122, 0.35) 0%, rgba(46, 173, 122, 0.08) 50%, transparent 70%);
+            animation: orbDrift1 11s ease-in-out infinite;
+            filter: blur(2px);
+        }
+
+        .orb-2 {
+            background: radial-gradient(circle, rgba(240, 165, 0, 0.28) 0%, rgba(240, 165, 0, 0.06) 50%, transparent 70%);
+            animation: orbDrift2 14s ease-in-out infinite;
+            filter: blur(4px);
+        }
+
+        .orb-3 {
+            background: radial-gradient(circle, rgba(95, 204, 160, 0.22) 0%, rgba(95, 204, 160, 0.05) 50%, transparent 70%);
+            animation: orbDrift3 9s ease-in-out infinite;
+            filter: blur(3px);
+        }
+
+        /* Floating particles in hero */
+        .hero-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(175, 240, 211, 0.6);
+            animation: particleDrift linear infinite;
+            pointer-events: none;
+        }
+
+        /* Hero text animations */
+        .hero-badge {
+            animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        .hero-h1 {
+            animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+        }
+
+        .hero-sub {
+            animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+        }
+
+        .hero-ctas {
+            animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+        }
+
+        .hero-fine {
+            animation: heroFadeIn 0.8s ease 0.8s both;
+        }
+
+        .hero-stats {
+            animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.85s both;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       PILL BADGE — Elevated
+       ═══════════════════════════════════════════════════════ */
+        .pill-badge {
+            background: rgba(46, 173, 122, 0.12);
+            border: 1px solid rgba(95, 204, 160, 0.35);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .pill-badge:hover {
+            background: rgba(46, 173, 122, 0.20);
+            border-color: rgba(95, 204, 160, 0.55);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       AMBER CTA — Hero primary button
+       ═══════════════════════════════════════════════════════ */
+        .amber-cta {
+            background: linear-gradient(135deg, #F0A500 0%, #FFBF3F 50%, #F0A500 100%);
+            background-size: 200% auto;
+            color: #1a0e00;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            border: none;
+            box-shadow: 0 4px 20px rgba(240, 165, 0, 0.40), 0 1px 4px rgba(240, 165, 0, 0.25);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .amber-cta::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .amber-cta:hover {
+            background-position: right center;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(240, 165, 0, 0.55), 0 2px 8px rgba(240, 165, 0, 0.30);
+        }
+
+        .amber-cta:hover::after {
+            transform: translateX(100%);
+        }
+
+        .amber-cta:active {
+            transform: translateY(-1px) scale(1.00);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       GLASS PANEL — Elevated glassmorphism
+       ═══════════════════════════════════════════════════════ */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            background: rgba(255, 255, 255, 0.11);
+            border-color: rgba(255, 255, 255, 0.22);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       STATS BAR — athenahealth-style counter elegance
+       ═══════════════════════════════════════════════════════ */
+        .stats-bar {
+            background: rgba(255, 255, 255, 0.055);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-val {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            font-size: 2.4rem;
+            color: #FFBF3F;
+            line-height: 1;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       TOP NAV — athenahealth-polished sticky nav
+       ═══════════════════════════════════════════════════════ */
+        #top-nav {
+            background: rgba(248, 251, 249, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 68, 49, 0.08);
+            box-shadow: 0 1px 20px rgba(0, 68, 49, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        #top-nav.scrolled {
+            background: rgba(248, 251, 249, 0.98);
+            box-shadow: 0 2px 24px rgba(0, 68, 49, 0.10);
+        }
+
+        /* Nav link hover underline effect */
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+            transition: color 0.25s ease !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2EAD7A, #1A5C46);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.text-emerald-900::after {
+            transform: scaleX(1);
+        }
+
+        /* Logo hover */
+        #top-nav .cursor-pointer:hover span.material-symbols-outlined {
+            transform: rotate(15deg) scale(1.1);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       FEATURE CARDS — HeartForce warmth + athenahealth polish
+       ═══════════════════════════════════════════════════════ */
+        @keyframes featureCardShimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes iconFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes iconPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 16px rgba(0, 68, 49, 0.25);
+            }
+
+            50% {
+                box-shadow: 0 6px 28px rgba(46, 173, 122, 0.45);
+            }
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5faf8 50%, #ffffff 100%);
+            background-size: 200% 200%;
+            border: 1px solid rgba(0, 68, 49, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 68, 49, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+            transition: all 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* Left accent bar */
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 4px;
+            height: 60%;
+            border-radius: 0 4px 4px 0;
+            background: linear-gradient(180deg, #2EAD7A, #1A5C46);
+            opacity: 0;
+            transition: opacity 0.4s ease, height 0.4s ease;
+        }
+
+        /* Top gradient bar */
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1A5C46, #2EAD7A, #5FCCA0, #F0A500);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 68, 49, 0.15), 0 6px 16px rgba(46, 173, 122, 0.10);
+            border-color: rgba(46, 173, 122, 0.20);
+            background: linear-gradient(135deg, #ffffff 0%, #eef8f3 40%, #fff9ec 100%);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Distinct accent colors for each card */
+        .feature-card.card-emerald::after {
+            background: linear-gradient(180deg, #2EAD7A, #004431);
+        }
+
+        .feature-card.card-amber::after {
+            background: linear-gradient(180deg, #F0A500, #805600);
+        }
+
+        .feature-card.card-teal::after {
+            background: linear-gradient(180deg, #5FCCA0, #1A5C46);
+        }
+
+        .feature-card.card-emerald:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #e8f7ef 40%, #f0faf5 100%);
+        }
+
+        .feature-card.card-amber:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #fff6e0 40%, #fffaf0 100%);
+        }
+
+        .feature-card.card-teal:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #e5f6ef 40%, #edfaf4 100%);
+        }
+
+        .feature-card.card-emerald::before {
+            background: linear-gradient(90deg, #004431, #2EAD7A, #5FCCA0);
+        }
+
+        .feature-card.card-amber::before {
+            background: linear-gradient(90deg, #805600, #F0A500, #FFBF3F);
+        }
+
+        .feature-card.card-teal::before {
+            background: linear-gradient(90deg, #1A5C46, #5FCCA0, #aff0d3);
+        }
+
+        .feature-icon {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        .feature-icon.icon-emerald {
+            background: linear-gradient(135deg, #004431 0%, #2EAD7A 100%) !important;
+            box-shadow: 0 6px 20px rgba(0, 68, 49, 0.35);
+        }
+
+        .feature-icon.icon-amber {
+            background: linear-gradient(135deg, #805600 0%, #F0A500 100%) !important;
+            box-shadow: 0 6px 20px rgba(128, 86, 0, 0.35);
+        }
+
+        .feature-icon.icon-teal {
+            background: linear-gradient(135deg, #1A5C46 0%, #5FCCA0 100%) !important;
+            box-shadow: 0 6px 20px rgba(26, 92, 70, 0.35);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.15) rotate(-8deg);
+            animation: iconFloat 2s ease-in-out infinite;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       TRUST / DARK STRIP — HeartForce-style authority section
+       ═══════════════════════════════════════════════════════ */
+        .trust-strip {
+            background: linear-gradient(150deg, #041f13 0%, #0d3525 40%, #0a2030 80%, #041f13 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-strip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 80% at 15% 50%, rgba(46, 173, 122, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 85% 50%, rgba(240, 165, 0, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .trust-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-glass::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .trust-glass:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(95, 204, 160, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       TESTIMONIAL CARDS — Refined premium feel
+       ═══════════════════════════════════════════════════════ */
+        .testimonial-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 68, 49, 0.07);
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0, 68, 49, 0.07);
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 5rem;
+            color: rgba(46, 173, 122, 0.08);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 68, 49, 0.12);
+            border-color: rgba(0, 68, 49, 0.13);
+        }
+
+        .star-row {
+            color: #F0A500;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       BOTTOM CTA CARD
+       ═══════════════════════════════════════════════════════ */
+        .bottom-card-gradient {
+            background: linear-gradient(135deg, #f5fbf7 0%, #edf8f2 40%, #fff8e8 100%);
+            border: 1px solid rgba(0, 68, 49, 0.08);
+            border-radius: 28px;
+            box-shadow: 0 8px 40px rgba(0, 68, 49, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bottom-card-gradient::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, rgba(46, 173, 122, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .bottom-card-gradient::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(240, 165, 0, 0.07), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       FORM INPUTS — Refined focus states
+       ═══════════════════════════════════════════════════════ */
+        input,
+        select {
+            outline: none !important;
+            transition: all 0.25s ease !important;
+        }
+
+        input:focus,
+        select:focus {
+            box-shadow: 0 0 0 3px rgba(46, 173, 122, 0.18), 0 2px 8px rgba(0, 68, 49, 0.08) !important;
+            border-color: #2EAD7A !important;
+        }
+
+        input:hover,
+        select:hover {
+            border-color: rgba(0, 68, 49, 0.25) !important;
+        }
+
+        /* Form card glassmorphism */
+        .form-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 68, 49, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 8px 40px rgba(0, 68, 49, 0.10), 0 2px 8px rgba(0, 68, 49, 0.05);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       PRIMARY CTA GRADIENT BUTTON
+       ═══════════════════════════════════════════════════════ */
+        .primary-cta-gradient {
+            background: linear-gradient(135deg, #004431 0%, #1a5c46 60%, #2EAD7A 100%);
+            background-size: 200% auto;
+            box-shadow: 0 4px 20px rgba(0, 68, 49, 0.35);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-cta-gradient::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .primary-cta-gradient:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 32px rgba(0, 68, 49, 0.45);
+        }
+
+        .primary-cta-gradient:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .primary-cta-gradient:active {
+            transform: translateY(-1px);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       SCREENING PAGE — Warm, inviting UI
+       ═══════════════════════════════════════════════════════ */
+        .bg-screening-gradient {
+            background: linear-gradient(165deg, #041f13 0%, #0a3926 18%, #1A5C46 38%, #2EAD7A 58%, #a8e6c8 78%, #f0faf5 92%, #f8fbf9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-screening-gradient::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 50% at 20% 30%, rgba(95, 204, 160, 0.20) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 80% 70%, rgba(240, 165, 0, 0.10) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 50% 50%, rgba(175, 240, 211, 0.12) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Screening orbs */
+        .screening-orb-1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(46, 173, 122, 0.25) 0%, transparent 70%);
+            animation: orbDrift1 12s ease-in-out infinite;
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .screening-orb-2 {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(240, 165, 0, 0.18) 0%, transparent 70%);
+            animation: orbDrift2 15s ease-in-out infinite;
+            filter: blur(50px);
+            pointer-events: none;
+        }
+
+        .screening-orb-3 {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(175, 240, 211, 0.20) 0%, transparent 70%);
+            animation: orbDrift3 10s ease-in-out infinite;
+            filter: blur(35px);
+            pointer-events: none;
+        }
+
+        /* Warm glow behind question card */
+        .question-card-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(46, 173, 122, 0.15) 0%, rgba(175, 240, 211, 0.08) 40%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+            animation: orbDrift1 8s ease-in-out infinite;
+        }
+
+        /* Question card entrance */
+        #question-card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 12px 48px rgba(0, 68, 49, 0.14), 0 2px 8px rgba(0, 68, 49, 0.08);
+            border: 1px solid rgba(0, 68, 49, 0.06);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .question-icon {
+            background: linear-gradient(135deg, #004431, #2EAD7A);
+            box-shadow: 0 6px 20px rgba(0, 68, 49, 0.35);
+        }
+
+        /* YES / NO Buttons — tactile feel */
+        .btn-gradient-yes {
+            background: linear-gradient(135deg, #0d7a47 0%, #1A9B5E 50%, #3DD68C 100%);
+            background-size: 200% auto;
+            box-shadow: 0 6px 24px rgba(13, 122, 71, 0.40);
+            border-radius: 18px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gradient-yes:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(13, 122, 71, 0.55);
+            background-position: right center;
+        }
+
+        .btn-gradient-yes:active {
+            transform: scale(0.97);
+        }
+
+        .btn-gradient-no {
+            background: linear-gradient(135deg, #a33028 0%, #C93F33 50%, #F06050 100%);
+            background-size: 200% auto;
+            box-shadow: 0 6px 24px rgba(163, 48, 40, 0.40);
+            border-radius: 18px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .btn-gradient-no:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(163, 48, 40, 0.55);
+            background-position: right center;
+        }
+
+        .btn-gradient-no:active {
+            transform: scale(0.97);
+        }
+
+        /* Progress bar — smooth gradient */
+        .prog-bar-track {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 100px;
+            overflow: hidden;
+            height: 6px;
+        }
+
+        .prog-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #5FCCA0, #2EAD7A, #FFBF3F);
+            border-radius: 100px;
+            transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 8px rgba(95, 204, 160, 0.6);
+        }
+
+        /* Back button frosted */
+        .back-btn {
+            background: rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: all 0.25s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: scale(1.05);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       RESULTS PAGE
+       ═══════════════════════════════════════════════════════ */
+        .results-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 68, 49, 0.07);
+            border-radius: 24px;
+            box-shadow: 0 12px 48px rgba(0, 68, 49, 0.12), 0 2px 8px rgba(0, 68, 49, 0.06);
+        }
+
+        /* SHAP bars animation */
+        .shap-bar {
+            transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       GAMES HUB — Vibrant emerald/teal theme
+       ═══════════════════════════════════════════════════════ */
+        @keyframes gameParticleDrift {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-150px) translateX(40px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes playBtnShimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes gameCardGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 8px 32px rgba(0, 68, 49, 0.12);
+            }
+
+            50% {
+                box-shadow: 0 12px 40px rgba(46, 173, 122, 0.20);
+            }
+        }
+
+        .hero-gradient-games {
+            background: linear-gradient(150deg, #020d08 0%, #041f13 20%, #0a3926 40%, #1A5C46 65%, #2EAD7A 90%, #5FCCA0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient-games::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 80% at 10% 90%, rgba(95, 204, 160, 0.20) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 90% 10%, rgba(240, 165, 0, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 50% 60%, rgba(175, 240, 211, 0.10) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Games floating particles */
+        .games-particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: gameParticleDrift linear infinite;
+        }
+
+        .game-glass {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transition: all 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        .game-glass:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-3px) scale(1.02);
+            border-color: rgba(175, 240, 211, 0.35);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+        }
+
+        /* Game cards — colorful glow accents */
+        .game-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+            cursor: pointer;
+            animation: gameCardGlow 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .game-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2EAD7A, #F0A500, #5FCCA0);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Play button — shimmer + glow */
+        .play-btn {
+            background: linear-gradient(135deg, #004431 0%, #1A5C46 40%, #2EAD7A 80%, #5FCCA0 100%);
+            background-size: 200% auto;
+            box-shadow: 0 6px 24px rgba(0, 68, 49, 0.45), 0 0 0 3px rgba(46, 173, 122, 0.15);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .play-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            background-size: 200% auto;
+            animation: playBtnShimmer 3s linear infinite;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 10px 32px rgba(0, 68, 49, 0.55), 0 0 0 6px rgba(46, 173, 122, 0.20);
+            background-position: right center;
+        }
+
+        .play-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.18);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .play-btn:hover::after {
+            transform: scale(1);
+        }
+
+        /* Game screen glass panel */
+        .game-glass-panel {
+            background: rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.20);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       PROGRESS DASHBOARD
+       ═══════════════════════════════════════════════════════ */
+        .header-gradient {
+            background: linear-gradient(150deg, #041f13 0%, #0F3D2E 50%, #1A5C46 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-gradient::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 80% at 80% 20%, rgba(95, 204, 160, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Stat cards */
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, #1A5C46, #2EAD7A);
+            margin-top: auto;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Chart card */
+        .chart-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .bar-mint-forest {
+            background: linear-gradient(180deg, #aff0d3 0%, #1A5C46 100%);
+            border-radius: 8px 8px 0 0;
+            transform: scaleY(1);
+            transform-origin: bottom;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+        }
+
+        .bar-amber-gold {
+            background: linear-gradient(180deg, #ffddaf 0%, #F0A500 100%);
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 0 14px rgba(240, 165, 0, 0.40);
+            transform-origin: bottom;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .summary-card-accent {
+            height: 4px;
+            background: linear-gradient(90deg, #1A5C46, #2EAD7A, #F0A500);
+        }
+
+        /* Signature CTA */
+        .signature-cta {
+            background: linear-gradient(135deg, #004431 0%, #1A5C46 60%, #2EAD7A 100%);
+            background-size: 200% auto;
+            box-shadow: 0 4px 20px rgba(0, 68, 49, 0.35);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .signature-cta:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 32px rgba(0, 68, 49, 0.50);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       REPORT PAGE
+       ═══════════════════════════════════════════════════════ */
+        .report-header {
+            background: linear-gradient(150deg, #3d0f2a 0%, #5C1A3E 40%, #D4528A 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(93, 26, 62, 0.35);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       RESOURCES PAGE
+       ═══════════════════════════════════════════════════════ */
+        .resources-hero {
+            background: linear-gradient(150deg, #2a0f04 0%, #3A1A08 40%, #A05020 100%);
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resources-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 80% at 80% 80%, rgba(240, 165, 0, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Resource cards */
+        .resource-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.14);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       BOTTOM NAV — Elevated frosted glass
+       ═══════════════════════════════════════════════════════ */
+        #bottom-nav {
+            background: rgba(248, 251, 249, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 68, 49, 0.07);
+            box-shadow: 0 -4px 24px rgba(0, 68, 49, 0.08);
+        }
+
+        .bottom-link {
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .bottom-link:hover {
+            opacity: 0.85;
+        }
+
+        .bottom-link.bg-emerald-100 {
+            background: linear-gradient(135deg, rgba(46, 173, 122, 0.15), rgba(175, 240, 211, 0.2)) !important;
+            box-shadow: 0 2px 12px rgba(46, 173, 122, 0.15);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       MILESTONE PAGE
+       ═══════════════════════════════════════════════════════ */
+        .milestone-section {
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 68, 49, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .milestone-section:hover {
+            box-shadow: 0 8px 32px rgba(0, 68, 49, 0.13);
+        }
+
+        .milestone-row {
+            transition: background 0.2s ease;
+        }
+
+        .milestone-row:hover {
+            background: rgba(0, 0, 0, 0.02) !important;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       CHILD INFO PAGE
+       ═══════════════════════════════════════════════════════ */
+        .onboarding-header {
+            background: linear-gradient(150deg, #041f13 0%, #0F3D2E 50%, #1a5c46 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .onboarding-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 70% at 90% 10%, rgba(95, 204, 160, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Step indicator enhanced */
+        .step-active {
+            background: linear-gradient(135deg, #F0A500, #FFBF3F);
+            color: #1a0e00;
+            box-shadow: 0 4px 16px rgba(240, 165, 0, 0.45);
+            font-weight: 800;
+        }
+
+        /* Gender buttons */
+        .gender-btn {
+            transition: all 0.25s cubic-bezier(0.34, 1.2, 0.64, 1) !important;
+            border: 2px solid rgba(0, 68, 49, 0.12) !important;
+        }
+
+        .gender-btn:hover {
+            border-color: rgba(0, 68, 49, 0.30) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 68, 49, 0.08);
+        }
+
+        /* Privacy badge */
+        .privacy-badge {
+            background: linear-gradient(135deg, rgba(175, 240, 211, 0.25), rgba(175, 240, 211, 0.15));
+            border: 1px solid rgba(46, 173, 122, 0.20);
+            border-radius: 16px;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       DESKTOP LAYOUT
+       ═══════════════════════════════════════════════════════ */
+        @media(min-width:768px) {
+            .desktop-grid-3 {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .desktop-grid-2 {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       GLOBAL TRANSITIONS
+       ═══════════════════════════════════════════════════════ */
+        button {
+            cursor: pointer;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        /* Smooth section separator */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 68, 49, 0.08), transparent);
+            margin: 0;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       AUTH PAGE — Login / Signup
+       ═══════════════════════════════════════════════════════ */
+        .auth-gradient {
+            background: linear-gradient(155deg, #020d08 0%, #041f13 20%, #0a3926 42%, #1A5C46 65%, #2EAD7A 88%, #a8e6c8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-gradient::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 25% 80%, rgba(95, 204, 160, 0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 80% 20%, rgba(240, 165, 0, 0.10) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 68, 49, 0.08);
+            border-radius: 28px;
+            box-shadow: 0 16px 64px rgba(0, 68, 49, 0.18), 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .auth-tab {
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .auth-tab.active {
+            color: #004431;
+            font-weight: 900;
+        }
+
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #2EAD7A, #F0A500);
+            border-radius: 2px;
+        }
+
+        .auth-input {
+            width: 100%;
+            height: 52px;
+            padding: 0 20px;
+            border-radius: 16px;
+            background: #f0faf5;
+            border: 1.5px solid rgba(0, 68, 49, 0.10);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #0d1f1a;
+            transition: all 0.25s ease;
+        }
+
+        .auth-input:focus {
+            outline: none;
+            border-color: #2EAD7A;
+            box-shadow: 0 0 0 3px rgba(46, 173, 122, 0.15);
+            background: #ffffff;
+        }
+
+        .auth-input:hover {
+            border-color: rgba(0, 68, 49, 0.22);
+        }
+
+        .auth-input::placeholder {
+            color: rgba(0, 68, 49, 0.35);
+            font-weight: 500;
+        }
+
+        .auth-error {
+            background: linear-gradient(135deg, rgba(186, 26, 26, 0.08), rgba(186, 26, 26, 0.04));
+            border: 1px solid rgba(186, 26, 26, 0.15);
+            border-radius: 16px;
+            padding: 16px 20px;
+            color: #93000a;
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: none;
+            animation: heroFadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .auth-error.visible {
+            display: flex;
+        }
+
+        .auth-orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Spin animation for loading states */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Logout button hover */
+        #logout-btn:hover {
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+        }
+
+        /* Mobile logout link */
+        #mobile-logout-link .material-symbols-outlined {
+            font-size: 22px;
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       TOP NAV — athenahealth-polished sticky nav
+       ═══════════════════════════════════════════════════════ */
+        #top-nav {
+            background: rgba(248, 251, 249, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 68, 49, 0.08);
+            box-shadow: 0 1px 20px rgba(0, 68, 49, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        #top-nav.scrolled {
+            background: rgba(248, 251, 249, 0.98);
+            box-shadow: 0 2px 24px rgba(0, 68, 49, 0.10);
+        }
+
+        /* Nav link hover underline effect */
+        .nav-link {
+            position: relative;
+            padding-bottom: 2px;
+            transition: color 0.25s ease !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2EAD7A, #1A5C46);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.text-emerald-900::after {
+            transform: scaleX(1);
+        }
+
+        /* Logo hover */
+        #top-nav .cursor-pointer:hover span.material-symbols-outlined {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* ═══════════════════════════════════════════════════════
+       BOTTOM NAV — Elevated frosted glass
+       ═══════════════════════════════════════════════════════ */
+        #bottom-nav {
+            background: rgba(248, 251, 249, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0, 68, 49, 0.07);
+            box-shadow: 0 -4px 24px rgba(0, 68, 49, 0.08);
+        }
+
+        .bottom-link {
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .bottom-link:hover {
+            opacity: 0.85;
+        }
+
+        .bottom-link.bg-emerald-100 {
+            background: linear-gradient(135deg, rgba(46, 173, 122, 0.15), rgba(175, 240, 211, 0.2)) !important;
+            box-shadow: 0 2px 12px rgba(46, 173, 122, 0.15);
+        }
+
+        /* ── DYNAMIC CHART UNPLAYED DAYS STYLE ── */
+        .bar-empty {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-radius: 8px 8px 0 0 !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-background min-h-screen">
+
+    <!-- ═══════════════════════════════════════════════════════
+     TOP NAV
+     ═══════════════════════════════════════════════════════ -->
+    <header id="top-nav"
+        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-white/90 backdrop-blur-[18px] border-b border-outline-variant/20">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="navigate('home')">
+            <span class="material-symbols-outlined text-emerald-900">spa</span>
+            <span class="text-xl font-black text-emerald-900 tracking-tight font-headline">SpectrumCare</span>
+        </div>
+        <nav class="hidden md:flex gap-8 items-center">
+            <a onclick="navigate('home')"
+                class="nav-link text-sm font-bold text-emerald-700/60 hover:text-emerald-900 cursor-pointer transition-colors"
+                data-page="home">Home</a>
+            <a onclick="navigate('games')"
+                class="nav-link text-sm font-bold text-emerald-700/60 hover:text-emerald-900 cursor-pointer transition-colors"
+                data-page="games">Games</a>
+            <a onclick="navigate('progress')"
+                class="nav-link text-sm font-bold text-emerald-700/60 hover:text-emerald-900 cursor-pointer transition-colors"
+                data-page="progress">Progress</a>
+            <a onclick="navigate('resources')"
+                class="nav-link text-sm font-bold text-emerald-700/60 hover:text-emerald-900 cursor-pointer transition-colors"
+                data-page="resources">Resources</a>
+        </nav>
+        <!-- User badge + logout (shown after login) -->
+        <div id="child-badge" class="hidden items-center gap-3">
+            <div class="flex items-center gap-1.5 text-sm font-bold text-emerald-900 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span id="child-name-badge">Child</span>
+            </div>
+            <button id="logout-btn" onclick="handleLogout()"
+                class="flex items-center gap-1.5 text-xs font-bold text-red-600 bg-red-50 hover:bg-red-100 border border-red-100 px-3 py-1.5 rounded-full transition-all hover:scale-105 active:scale-95">
+                <span class="material-symbols-outlined" style="font-size:14px">logout</span>
+                Sign Out
+            </button>
+        </div>
+        <!-- Login button (shown when logged out) -->
+        <button id="login-nav-btn" onclick="navigate('childinfo')"
+            class="hidden md:flex items-center gap-1.5 text-xs font-bold text-emerald-900 bg-emerald-50 hover:bg-primary-fixed border border-emerald-100 px-4 py-2 rounded-full transition-all">
+            <span class="material-symbols-outlined" style="font-size:14px">login</span>
+            Sign In
+        </button>
+    </header>
+
+    <div id="page-container" class="min-h-screen flex flex-col justify-between">
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: HOME
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-home" class="page active pt-16">
+        <!-- Hero -->
+        <section
+            class="hero-gradient relative min-h-screen pt-24 pb-20 px-6 overflow-hidden flex flex-col items-center justify-center text-center">
+            <!-- Orbs -->
+            <div class="orb-1 absolute top-0 right-0 w-[320px] h-[320px] rounded-full opacity-90"
+                style="filter:blur(60px)"></div>
+            <div class="orb-2 absolute bottom-0 left-0 w-[260px] h-[260px] rounded-full opacity-90"
+                style="filter:blur(60px)"></div>
+            <div class="orb-3 absolute top-1/2 right-1/4 w-[180px] h-[180px] rounded-full opacity-90"
+                style="filter:blur(50px)"></div>
+            <!-- Floating particles -->
+            <div class="hero-particle" style="left:15%;bottom:30%;animation-duration:8s;animation-delay:0s"></div>
+            <div class="hero-particle"
+                style="left:30%;bottom:20%;animation-duration:11s;animation-delay:2s;width:3px;height:3px"></div>
+            <div class="hero-particle"
+                style="left:70%;bottom:40%;animation-duration:9s;animation-delay:4s;width:5px;height:5px;background:rgba(240,165,0,0.5)">
+            </div>
+            <div class="hero-particle"
+                style="left:85%;bottom:25%;animation-duration:12s;animation-delay:1s;width:3px;height:3px"></div>
+            <div class="hero-particle" style="left:50%;bottom:15%;animation-duration:10s;animation-delay:3s"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <div class="pill-badge hero-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-8">
+                    <span class="w-2 h-2 rounded-full bg-[#2ead7a]"></span>
+                    <span class="text-[0.76rem] font-bold text-[#aff0d3] tracking-widest uppercase">VALIDATED BY WHO
+                        GUIDELINES</span>
+                </div>
+                <h1 class="hero-h1 text-5xl md:text-7xl font-serif text-white mb-6 leading-[1.1]">
+                    Every child deserves<br><span class="text-secondary-fixed-dim italic">early support.</span>
+                </h1>
+                <p class="hero-sub text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-body leading-relaxed">
+                    Empowering parents with clinically-validated screening tools and neuro-affirming developmental games
+                    designed for the early years.
+                </p>
+                <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                    <button onclick="requireAuthForScreening()"
+                        class="amber-cta px-8 py-4 rounded-full text-lg font-bold flex items-center gap-2">
+                        Start Free Screening <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                    <button onclick="navigate('games')"
+                        class="glass-panel px-8 py-4 rounded-full text-lg font-bold text-white">
+                        Explore Games
+                    </button>
+                </div>
+                <p class="hero-fine text-white/40 text-sm font-medium">🔒 Private &amp; secure · No account required ·
+                    Results in 3 minutes</p>
+            </div>
+            <!-- Stats bar -->
+            <div class="hero-stats relative z-10 w-full max-w-4xl mx-auto mt-16">
+                <div class="stats-bar grid grid-cols-3 divide-x divide-white/10 py-8 px-6">
+                    <div class="flex flex-col items-center"><span class="stat-val">92%</span><span
+                            class="text-xs font-bold text-white/50 uppercase tracking-widest mt-2">Accuracy Rate</span>
+                    </div>
+                    <div class="flex flex-col items-center"><span class="stat-val">3 min</span><span
+                            class="text-xs font-bold text-white/50 uppercase tracking-widest mt-2">Avg. Screening</span>
+                    </div>
+                    <div class="flex flex-col items-center"><span class="stat-val">50K+</span><span
+                            class="text-xs font-bold text-white/50 uppercase tracking-widest mt-2">Families
+                            Helped</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="py-24 px-6 bg-background">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-emerald-700 font-black text-xs uppercase tracking-[0.2em] mb-4 block">How it
+                        works</span>
+                    <h2
+                        class="text-4xl md:text-5xl font-headline font-black text-on-background max-w-2xl mx-auto leading-tight">
+                        Everything your family needs, in one place.</h2>
+                </div>
+                <div class="desktop-grid-3 flex flex-col md:grid gap-8">
+                    <div onclick="navigate('screening')" class="feature-card card-emerald p-8 reveal delay-1">
+                        <div
+                            class="feature-icon icon-emerald w-14 h-14 text-white rounded-2xl flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-2xl">assignment</span>
+                        </div>
+                        <h3 class="text-2xl font-headline font-black mb-4">AI Screening</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Clinically validated M-CHAT-R markers
+                            analyzed through interactive parent input.</p>
+                        <div class="mt-6 flex items-center gap-2 text-emerald-700 font-bold text-sm group">
+                            <span>Start screening</span>
+                            <span
+                                class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </div>
+                    </div>
+                    <div onclick="navigate('games')" class="feature-card card-amber p-8 reveal delay-2">
+                        <div
+                            class="feature-icon icon-amber w-14 h-14 text-white rounded-2xl flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-2xl">sports_esports</span>
+                        </div>
+                        <h3 class="text-2xl font-headline font-black mb-4">Therapy Games</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Gamified exercises designed by therapists to
+                            strengthen social and communication skills.</p>
+                        <div class="mt-6 flex items-center gap-2 text-amber-700 font-bold text-sm group">
+                            <span>Play now</span>
+                            <span
+                                class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </div>
+                    </div>
+                    <div onclick="navigate('progress')" class="feature-card card-teal p-8 reveal delay-3">
+                        <div
+                            class="feature-icon icon-teal w-14 h-14 text-white rounded-2xl flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-2xl">bar_chart</span>
+                        </div>
+                        <h3 class="text-2xl font-headline font-black mb-4">Progress Reports</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Actionable insights to share with your
+                            pediatrician for better clinical coordination.</p>
+                        <div class="mt-6 flex items-center gap-2 text-teal-700 font-bold text-sm group">
+                            <span>View progress</span>
+                            <span
+                                class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Strip -->
+        <section class="trust-strip py-24 px-6">
+            <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-16 items-center relative z-10">
+                <div class="lg:w-1/2 reveal-left">
+                    <h2 class="text-4xl md:text-5xl font-serif italic text-white leading-tight mb-8">"Early
+                        identification leads to better outcomes for every child."</h2>
+                    <p class="text-white/60 text-lg mb-8 max-w-lg">We bridge the gap between initial concern and
+                        professional diagnosis, providing immediate resources for your journey.</p>
+                </div>
+                <div class="lg:w-1/2 grid grid-cols-2 gap-4 w-full reveal-right">
+                    <div class="trust-glass p-8"><span
+                            class="material-symbols-outlined text-secondary-container mb-4 text-3xl">security</span>
+                        <h4 class="text-white font-bold mb-2">HIPAA Secure</h4>
+                        <p class="text-white/40 text-sm">Military-grade data encryption.</p>
+                    </div>
+                    <div class="trust-glass p-8"><span
+                            class="material-symbols-outlined text-secondary-container mb-4 text-3xl">psychology</span>
+                        <h4 class="text-white font-bold mb-2">Evidence Based</h4>
+                        <p class="text-white/40 text-sm">Built on peer-reviewed science.</p>
+                    </div>
+                    <div class="trust-glass p-8"><span
+                            class="material-symbols-outlined text-secondary-container mb-4 text-3xl">family_history</span>
+                        <h4 class="text-white font-bold mb-2">Family Centric</h4>
+                        <p class="text-white/40 text-sm">Designed for real-world parenting.</p>
+                    </div>
+                    <div class="trust-glass p-8"><span
+                            class="material-symbols-outlined text-secondary-container mb-4 text-3xl">clinical_notes</span>
+                        <h4 class="text-white font-bold mb-2">Pediatric Ready</h4>
+                        <p class="text-white/40 text-sm">Reports ready for your doctor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-24 px-6 bg-surface-container-low">
+            <div class="max-w-5xl mx-auto desktop-grid-2 flex flex-col md:grid gap-12">
+                <div class="testimonial-card p-10 reveal delay-1">
+                    <div class="star-row mb-6">★★★★★</div>
+                    <blockquote class="text-xl font-medium text-on-surface mb-8 leading-relaxed italic">"SpectrumCare
+                        gave me the confidence to speak with our pediatrician. The screening was simple but the clarity
+                        it provided was life-changing."</blockquote>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-white font-black">
+                            S</div>
+                        <div>
+                            <h5 class="font-black text-on-surface">Sarah J.</h5>
+                            <p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Mother of
+                                3-year-old</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card p-10 reveal delay-2">
+                    <div class="star-row mb-6">★★★★★</div>
+                    <blockquote class="text-xl font-medium text-on-surface mb-8 leading-relaxed italic">"As a clinical
+                        psychologist, I'm impressed by the rigor of the games. They truly align with early intervention
+                        best practices."</blockquote>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-white font-black">
+                            D</div>
+                        <div>
+                            <h5 class="font-black text-on-surface">Dr. Michael Chen</h5>
+                            <p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Pediatric
+                                Psychologist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="py-24 px-6 bg-background">
+            <div class="max-w-4xl mx-auto reveal">
+                <div class="bottom-card-gradient p-12 md:p-20 text-center">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black text-on-background mb-6">Start your journey
+                        today.</h2>
+                    <p class="text-on-surface-variant text-lg mb-10 max-w-xl mx-auto">Take the first step toward
+                        understanding your child's developmental milestones with our free, science-backed screening.</p>
+                    <button onclick="requireAuthForScreening()"
+                        class="amber-cta w-full py-5 rounded-full text-xl font-black shadow-lg">Start Screening for
+                        Free</button>
+                    <p class="mt-6 text-xs font-bold text-on-surface-variant/60 uppercase tracking-[0.2em]">Validated by
+                        clinical specialists</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: CHILD INFO
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-childinfo" class="page pt-16">
+        <section class="onboarding-header relative w-full pt-16 pb-16 px-6 overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary-container/20 rounded-full blur-[80px]"></div>
+            <div class="max-w-xl mx-auto relative z-10">
+                <div class="flex items-center justify-between mb-12 relative">
+                    <div class="absolute top-1/2 left-0 w-full h-0.5 bg-white/20 -translate-y-1/2 z-0"></div>
+                    <div class="relative z-10 flex flex-col items-center gap-2">
+                        <div
+                            class="step-active w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm">
+                            1</div><span class="text-[10px] font-bold text-white uppercase tracking-widest">Sign
+                            Up</span>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center gap-2 opacity-50">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-sm">
+                            2</div><span
+                            class="text-[10px] font-bold text-white uppercase tracking-widest">Screening</span>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center gap-2 opacity-50">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center font-bold text-sm">
+                            3</div><span
+                            class="text-[10px] font-bold text-white uppercase tracking-widest">Results</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-start gap-4">
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15"><span
+                            class="text-3xl">👶</span></div>
+                    <h1 class="text-4xl md:text-5xl font-black text-white font-headline leading-tight">Tell us about
+                        your little one</h1>
+                    <p class="text-white/70 text-lg max-w-md font-body leading-relaxed">Create your account and provide
+                        a few details to start the developmental screening.</p>
+                </div>
+            </div>
+        </section>
+        <section class="px-6 -mt-10 relative z-20 pb-24">
+            <div class="max-w-xl mx-auto form-card p-8">
+                <!-- Auth Tabs -->
+                <div class="flex justify-center gap-8 mb-8">
+                    <button class="auth-tab active text-base font-bold text-primary/50 pb-2"
+                        onclick="switchAuthMode('signup')" id="tab-signup">Sign Up</button>
+                    <button class="auth-tab text-base font-bold text-primary/50 pb-2" onclick="switchAuthMode('login')"
+                        id="tab-login">Log In</button>
+                </div>
+
+                <!-- Auth error message -->
+                <div id="auth-error" class="auth-error mb-6 items-center gap-3">
+                    <span class="material-symbols-outlined text-lg">error</span>
+                    <span id="auth-error-text">Error message</span>
+                </div>
+
+                <!-- SIGN UP form (full: email + password + child details) -->
+                <form id="form-signup" class="space-y-6" onsubmit="handleAuthAndScreen(event)">
+                    <div class="space-y-3">
+                        <label
+                            class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Parent's
+                            Name <span class="text-error">*</span></label>
+                        <input id="auth-parent-name"
+                            class="w-full h-14 px-5 rounded-2xl bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 text-on-surface font-semibold"
+                            placeholder="Enter parent's name" type="text" required />
+                    </div>
+                    <div class="space-y-3">
+                        <label
+                            class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Parent's
+                            Email <span class="text-error">*</span></label>
+                        <input id="auth-email"
+                            class="w-full h-14 px-5 rounded-2xl bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 text-on-surface font-semibold"
+                            placeholder="you@email.com" type="email" required />
+                    </div>
+                    <div class="space-y-3">
+                        <label
+                            class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Password
+                            <span class="text-error">*</span></label>
+                        <input id="auth-password"
+                            class="w-full h-14 px-5 rounded-2xl bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 text-on-surface font-semibold"
+                            placeholder="Create a password (min 6 chars)" type="password" required minlength="6" />
+                    </div>
+                    <div class="h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent"></div>
+                    <div class="space-y-3">
+                        <label class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Child's
+                            First Name <span class="text-error">*</span></label>
+                        <input id="child-name-input"
+                            class="w-full h-14 px-5 rounded-2xl bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 text-on-surface font-semibold"
+                            placeholder="Enter first name" type="text" required />
+                    </div>
+                    <div class="space-y-3">
+                        <label class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Child's
+                            Age (Years) <span class="text-error">*</span></label>
+                        <input id="child-age-input"
+                            class="w-full h-14 px-5 rounded-2xl bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 text-on-surface font-semibold"
+                            placeholder="1 to 4" type="number" required min="1" max="4" />
+                    </div>
+                    <div class="space-y-3">
+                        <label
+                            class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Gender</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button type="button"
+                                class="gender-btn h-12 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant font-bold text-sm"
+                                onclick="selectGender(this)">Girl</button>
+                            <button type="button"
+                                class="gender-btn h-12 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant font-bold text-sm"
+                                onclick="selectGender(this)">Boy</button>
+                            <button type="button"
+                                class="gender-btn h-12 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant font-bold text-sm"
+                                onclick="selectGender(this)">Other</button>
+                        </div>
+                    </div>
+                    <div class="privacy-badge p-4 flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-primary text-xl">shield</span>
+                        </div>
+                        <p class="text-sm font-semibold text-primary leading-tight">Your data is private and never
+                            shared with third parties.</p>
+                    </div>
+                    <div class="pt-2">
+                        <button type="submit"
+                            class="w-full h-[60px] rounded-full primary-cta-gradient text-white font-black text-lg shadow-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+                            Create Account & Start Screening <span
+                                class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- LOGIN form (shorter: email + password + age only) -->
+                <form id="form-login" class="space-y-6 hidden" onsubmit="handleLoginAndScreen(event)">
+                    <div class="space-y-3">
+                        <label class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Email
+                            Address <span class="text-error">*</span></label>
+                        <input id="login-email"
+                            class="w-full h-14 px-5 rounded-2xl bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 text-on-surface font-semibold"
+                            placeholder="you@email.com" type="email" required />
+                    </div>
+                    <div class="space-y-3">
+                        <label
+                            class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Password
+                            <span class="text-error">*</span></label>
+                        <input id="login-password"
+                            class="w-full h-14 px-5 rounded-2xl bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 text-on-surface font-semibold"
+                            placeholder="Enter your password" type="password" required minlength="6" />
+                    </div>
+                    <div class="h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent"></div>
+                    <div class="space-y-3">
+                        <label class="block text-[11px] font-bold text-primary/60 uppercase tracking-wider px-1">Child's
+                            Age (Years) <span class="text-error">*</span></label>
+                        <input id="login-age-input"
+                            class="w-full h-14 px-5 rounded-2xl bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 text-on-surface font-semibold"
+                            placeholder="1 to 4" type="number" required min="1" max="4" />
+                    </div>
+                    <div class="privacy-badge p-4 flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-primary text-xl">shield</span>
+                        </div>
+                        <p class="text-sm font-semibold text-primary leading-tight">Your data is private and never
+                            shared with third parties.</p>
+                    </div>
+                    <div class="pt-2">
+                        <button type="submit"
+                            class="w-full h-[60px] rounded-full primary-cta-gradient text-white font-black text-lg shadow-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+                            Log In & Start Screening <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: WELCOME
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-welcome" class="page pt-16">
+        <section class="relative w-full pt-16 pb-16 px-6 overflow-hidden text-center">
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-fixed/20 rounded-full blur-[80px]"></div>
+            <div class="max-w-xl mx-auto relative z-10 space-y-6">
+                <div class="inline-flex bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15"><span class="text-4xl">👶</span></div>
+                <h1 class="text-4xl md:text-5xl font-black text-emerald-950 font-headline leading-tight">
+                    Welcome, <span id="welcome-child-name" class="text-secondary-fixed-dim">your child</span>!
+                </h1>
+                <p class="text-emerald-800/80 text-lg max-w-md mx-auto font-body leading-relaxed">
+                    We are so glad you are here. Your child's early developmental journey is important to us.
+                </p>
+            </div>
+        </section>
+        <section class="px-6 -mt-6 relative z-20 pb-24">
+            <div class="max-w-md mx-auto form-card p-8 text-center space-y-6">
+                <div class="bg-surface-container-high p-6 rounded-2xl border border-outline-variant/30 space-y-3">
+                    <span class="material-symbols-outlined text-4xl text-primary animate-pulse">assignment_turned_in</span>
+                    <h3 class="text-xl font-bold text-primary">Ready for Screening</h3>
+                    <p class="text-sm text-on-surface-variant/85 leading-relaxed">
+                        This clinical screening takes about 5-10 minutes. Please answer the questions honestly based on your child's typical behaviors.
+                    </p>
+                </div>
+                <div class="pt-2">
+                    <button onclick="navigate('screening')"
+                        class="w-full h-[60px] rounded-full primary-cta-gradient text-white font-black text-lg shadow-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+                        Start Screening Now <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: SCREENING
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-screening" class="page">
+        <div class="bg-screening-gradient min-h-screen">
+            <!-- Decorative screening orbs -->
+            <div class="screening-orb-1" style="top:10%;right:5%"></div>
+            <div class="screening-orb-2" style="bottom:20%;left:8%"></div>
+            <div class="screening-orb-3" style="top:40%;left:60%"></div>
+            <header class="px-6 py-6 flex flex-col gap-4 relative z-10">
+                <div class="flex justify-between items-center max-w-2xl mx-auto w-full">
+                    <button onclick="navigate('childinfo')"
+                        class="back-btn w-12 h-12 flex items-center justify-center rounded-full text-white"><span
+                            class="material-symbols-outlined">arrow_back</span></button>
+                    <span class="text-xl font-black text-white tracking-tight font-headline">SpectrumCare</span>
+                    <div id="screening-name-badge"
+                        class="text-white/80 font-label text-sm font-bold bg-white/10 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/15">
+                        • Leo</div>
+                </div>
+                <div class="w-full max-w-2xl mx-auto space-y-2 px-2">
+                    <div class="flex justify-between items-end">
+                        <span id="q-label"
+                            class="text-secondary-fixed-dim font-bold text-xs uppercase tracking-widest">Question 1 of
+                            20</span>
+                        <span id="q-pct" class="text-secondary-fixed-dim font-black text-sm">0%</span>
+                    </div>
+                    <div class="prog-bar-track">
+                        <div id="q-bar" class="prog-bar-fill" style="width:0%"></div>
+                    </div>
+                </div>
+            </header>
+            <main class="px-6 pb-12 flex flex-col items-center max-w-2xl mx-auto relative z-10">
+                <div class="question-card-glow" style="top:50%;left:50%;transform:translate(-50%,-50%);z-index:0"></div>
+                <div id="question-card" class="w-full p-8 md:p-12 relative z-10">
+                    <div class="question-icon w-14 h-14 rounded-2xl text-white flex items-center justify-center mb-8">
+                        <span class="material-symbols-outlined text-2xl">assignment</span>
+                    </div>
+                    <h1 id="question-text"
+                        class="text-2xl md:text-3xl font-black text-primary leading-tight font-headline mb-4">Loading...
+                    </h1>
+                    <p id="question-child" class="text-on-surface-variant/70 text-lg font-medium italic font-serif">
+                        Think about your child's typical behavior</p>
+                </div>
+                <div id="encouragement"
+                    class="hidden mt-8 flex items-center gap-3 py-3 px-6 bg-primary-container/10 rounded-full border border-primary-container/15">
+                    <span class="material-symbols-outlined text-primary-container text-sm">auto_awesome</span>
+                    <p class="text-primary-container font-bold text-sm uppercase tracking-wider">Almost done — you're
+                        doing great!</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 w-full mt-12">
+                    <button onclick="answerQuestion(true)"
+                        class="btn-gradient-yes group relative h-20 flex items-center justify-center gap-2 text-white font-black text-xl font-headline shadow-lg">
+                        <span class="material-symbols-outlined text-2xl"
+                            style="font-variation-settings:'FILL' 1;">check_circle</span> Yes
+                    </button>
+                    <button onclick="answerQuestion(false)"
+                        class="btn-gradient-no group relative h-20 flex items-center justify-center gap-2 text-white font-black text-xl font-headline shadow-lg">
+                        <span class="material-symbols-outlined text-2xl"
+                            style="font-variation-settings:'FILL' 1;">cancel</span> No
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: RESULTS
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-results" class="page pt-16 pb-32">
+        <section
+            class="relative h-[280px] w-full flex flex-col items-center justify-center text-center px-6 overflow-hidden"
+            style="background:linear-gradient(180deg,rgba(26,155,94,0.10) 0%,rgba(248,251,249,1) 100%)">
+            <h1 class="font-serif italic text-4xl md:text-5xl text-primary mb-4">Assessment Complete</h1>
+            <p class="text-on-surface-variant max-w-md mx-auto leading-relaxed">We've analyzed your child's
+                developmental patterns across five key SHAP factors.</p>
+        </section>
+        <div class="max-w-4xl mx-auto px-6 -mt-20 relative z-10">
+            <div class="results-card p-8 flex flex-col items-center text-center mb-8">
+                <div class="relative w-64 h-36 mb-6">
+                    <svg class="w-full h-full overflow-visible" viewBox="0 0 100 50">
+                        <defs>
+                            <linearGradient id="gaugeGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+                                <stop offset="0%" stop-color="#10b981" />
+                                <stop offset="50%" stop-color="#f59e0b" />
+                                <stop offset="100%" stop-color="#ef4444" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 10 45 A 40 40 0 0 1 90 45" fill="none" stroke="#e5e2dc" stroke-linecap="round"
+                            stroke-width="8" />
+                        <path d="M 10 45 A 40 40 0 0 1 18.5 35" fill="none" stroke="url(#gaugeGradient)"
+                            stroke-linecap="round" stroke-width="10"
+                            style="filter:drop-shadow(0 0 4px rgba(16,185,129,0.5))" />
+                    </svg>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                        <span class="font-serif italic text-5xl text-primary leading-none">12%</span>
+                        <span class="text-[10px] font-bold text-outline uppercase tracking-widest mt-1">Risk
+                            Score</span>
+                    </div>
+                </div>
+                <div
+                    class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 px-4 py-1.5 rounded-full mb-4 border border-emerald-100">
+                    <span class="text-lg">🌿</span><span class="text-sm font-bold tracking-wide uppercase">Low
+                        Risk</span>
+                </div>
+                <p class="text-on-surface leading-relaxed text-lg">Results indicate a low risk for developmental
+                    concerns at this stage. Keep encouraging play and social interactions.</p>
+            </div>
+            <div class="desktop-grid-2 flex flex-col md:grid gap-8">
+                <div class="chart-card p-8 reveal">
+                    <h2 class="text-2xl font-black text-primary tracking-tight mb-8">SHAP Factors</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-bold">Social
+                                    Communication</span><span
+                                    class="text-[11px] font-bold px-2 py-0.5 bg-primary/10 text-primary rounded-full uppercase">Positive</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full shap-bar bg-gradient-to-r from-primary to-primary-container rounded-full"
+                                    style="width:92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-bold">Repetitive
+                                    Behaviors</span><span
+                                    class="text-[11px] font-bold px-2 py-0.5 bg-primary/10 text-primary rounded-full uppercase">Positive</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full shap-bar bg-gradient-to-r from-primary to-primary-container rounded-full"
+                                    style="width:88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-bold">Sensory
+                                    Sensitivity</span><span
+                                    class="text-[11px] font-bold px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full uppercase">Neutral</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full shap-bar bg-gradient-to-r from-primary/60 to-primary/40 rounded-full"
+                                    style="width:65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-bold">Motor
+                                    Integration</span><span
+                                    class="text-[11px] font-bold px-2 py-0.5 bg-primary/10 text-primary rounded-full uppercase">Positive</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full shap-bar bg-gradient-to-r from-primary to-primary-container rounded-full"
+                                    style="width:95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-bold">Adaptive
+                                    Functioning</span><span
+                                    class="text-[11px] font-bold px-2 py-0.5 bg-primary/10 text-primary rounded-full uppercase">Positive</span>
+                            </div>
+                            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full shap-bar bg-gradient-to-r from-primary to-primary-container rounded-full"
+                                    style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="results-card overflow-hidden">
+                        <div class="h-1.5 bg-gradient-to-r from-primary via-emerald-400 to-secondary-container"></div>
+                        <div class="p-6">
+                            <h3 class="font-black text-lg text-primary mb-3">What This Means</h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed mb-4">Based on your observations,
+                                your child is meeting typical developmental milestones. Some minor sensory preferences
+                                were noted but do not indicate a significant risk factor.</p>
+                            <p class="text-sm text-on-surface-variant italic border-l-2 border-primary-fixed pl-3">This
+                                report is for screening purposes and is not a clinical diagnosis.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <button onclick="navigate('games')"
+                            class="amber-cta w-full h-[54px] rounded-full font-bold flex items-center justify-center gap-2 shadow-lg">Explore
+                            Games <span class="material-symbols-outlined text-lg">arrow_forward</span></button>
+                        <button onclick="navigate('report')"
+                            class="w-full h-[54px] bg-white border border-outline-variant/40 text-primary rounded-full font-bold flex items-center justify-center gap-2 hover:bg-surface-container-low hover:border-primary/20 transition-all duration-300">
+                            <span class="material-symbols-outlined text-lg">download</span> Download PDF Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: MILESTONES
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-milestones" class="page pt-16 pb-32">
+        <section class="relative overflow-hidden rounded-b-3xl p-8 text-white"
+            style="background:linear-gradient(150deg,#041f13,#0a3926,#1A5C46)">
+            <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="max-w-2xl mx-auto relative z-10">
+                <h1 class="text-4xl font-serif italic mb-2">Milestone Tracker</h1>
+                <p class="text-white/80 text-lg mb-6">Track your child's developmental milestones with clarity and
+                    warmth.</p>
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15">
+                    <div class="flex justify-between mb-3"><span class="text-white font-bold text-sm">Overall
+                            Progress</span><span class="text-secondary-fixed-dim font-black text-sm">8 / 16</span></div>
+                    <div class="h-3 bg-white/20 rounded-full overflow-hidden">
+                        <div class="h-full rounded-full w-1/2"
+                            style="background:linear-gradient(90deg,#aff0d3,#ffb21d);box-shadow:0 0 8px rgba(175,240,211,0.5)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="max-w-2xl mx-auto px-6 pt-8 space-y-8">
+            <div class="milestone-section reveal delay-1">
+                <div class="p-5 flex items-center justify-between" style="background:#EEF2FF">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-lg" style="background:#4B7BF5"><span
+                                class="material-symbols-outlined text-white">favorite</span></div>
+                        <h3 class="font-headline font-extrabold text-lg" style="color:#4B7BF5">Social & Emotional</h3>
+                    </div>
+                    <span class="text-sm font-bold opacity-60" style="color:#1B3060">3 of 5</span>
+                </div>
+                <div class="bg-white p-2">
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg"
+                        style="background:rgba(75,123,245,0.07)">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] rounded-[8px] flex items-center justify-center text-white"
+                            style="background:#4B7BF5"><span class="material-symbols-outlined text-[18px]">check</span>
+                        </div>
+                        <p class="text-[15px] font-medium leading-relaxed line-through opacity-60"
+                            style="color:#1B3060">Shows you what she can do by saying, "Look at me!"</p>
+                    </div>
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 cursor-pointer">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] border-2 rounded-[8px]"
+                            style="border-color:#4B7BF5"></div>
+                        <p class="text-[15px] font-medium leading-relaxed" style="color:#1B3060">Plays simple pretend,
+                            like feeding a doll.</p>
+                    </div>
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg"
+                        style="background:rgba(75,123,245,0.07)">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] rounded-[8px] flex items-center justify-center text-white"
+                            style="background:#4B7BF5"><span class="material-symbols-outlined text-[18px]">check</span>
+                        </div>
+                        <p class="text-[15px] font-medium leading-relaxed line-through opacity-60"
+                            style="color:#1B3060">Notices when others are hurt or upset.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="milestone-section reveal delay-2">
+                <div class="p-5 flex items-center justify-between" style="background:#FFF0F7">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-lg" style="background:#D4528A"><span
+                                class="material-symbols-outlined text-white">forum</span></div>
+                        <h3 class="font-headline font-extrabold text-lg" style="color:#D4528A">Language & Communication
+                        </h3>
+                    </div>
+                    <span class="text-sm font-bold opacity-60" style="color:#780f05">2 of 6</span>
+                </div>
+                <div class="bg-white p-2">
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg"
+                        style="background:rgba(212,82,138,0.07)">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] rounded-[8px] flex items-center justify-center text-white"
+                            style="background:#D4528A"><span class="material-symbols-outlined text-[18px]">check</span>
+                        </div>
+                        <p class="text-[15px] font-medium leading-relaxed line-through opacity-60"
+                            style="color:#780f05">Points to things in a book when you ask.</p>
+                    </div>
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 cursor-pointer">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] border-2 rounded-[8px]"
+                            style="border-color:#D4528A"></div>
+                        <p class="text-[15px] font-medium leading-relaxed" style="color:#780f05">Says at least two words
+                            together, like "More milk."</p>
+                    </div>
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 cursor-pointer">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] border-2 rounded-[8px]"
+                            style="border-color:#D4528A"></div>
+                        <p class="text-[15px] font-medium leading-relaxed" style="color:#780f05">Points to at least two
+                            body parts when asked.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="milestone-section reveal delay-3">
+                <div class="p-5 flex items-center justify-between" style="background:#E5F8EF">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-lg" style="background:#2EAD7A"><span
+                                class="material-symbols-outlined text-white">directions_run</span></div>
+                        <h3 class="font-headline font-extrabold text-lg" style="color:#2EAD7A">Motor Skills</h3>
+                    </div>
+                    <span class="text-sm font-bold opacity-60" style="color:#004431">3 of 5</span>
+                </div>
+                <div class="bg-white p-2">
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg"
+                        style="background:rgba(46,173,122,0.07)">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] rounded-[8px] flex items-center justify-center text-white"
+                            style="background:#2EAD7A"><span class="material-symbols-outlined text-[18px]">check</span>
+                        </div>
+                        <p class="text-[15px] font-medium leading-relaxed line-through opacity-60"
+                            style="color:#004431">Kicks a ball.</p>
+                    </div>
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg"
+                        style="background:rgba(46,173,122,0.07)">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] rounded-[8px] flex items-center justify-center text-white"
+                            style="background:#2EAD7A"><span class="material-symbols-outlined text-[18px]">check</span>
+                        </div>
+                        <p class="text-[15px] font-medium leading-relaxed line-through opacity-60"
+                            style="color:#004431">Runs easily.</p>
+                    </div>
+                    <div class="milestone-row flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 cursor-pointer">
+                        <div class="flex-shrink-0 w-[26px] h-[26px] border-2 rounded-[8px]"
+                            style="border-color:#2EAD7A"></div>
+                        <p class="text-[15px] font-medium leading-relaxed" style="color:#004431">Walks up a few stairs
+                            with or without help.</p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="navigate('results')"
+                class="signature-cta w-full py-4 text-white font-bold rounded-full shadow-lg flex items-center justify-center gap-2">View
+                Results <span class="material-symbols-outlined">arrow_forward</span></button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: GAMES
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-games" class="page hero-gradient-games min-h-screen text-white pt-24 pb-32">
+        <!-- Ambient glow orbs -->
+        <div class="absolute top-[-10%] right-[-10%] w-72 h-72 rounded-full blur-[80px]"
+            style="background:radial-gradient(circle, rgba(175,240,211,0.25), transparent 70%)"></div>
+        <div class="absolute bottom-[-20%] left-[-5%] w-56 h-56 rounded-full blur-[60px]"
+            style="background:radial-gradient(circle, rgba(240,165,0,0.18), transparent 70%)"></div>
+        <div class="absolute top-[30%] left-[40%] w-40 h-40 rounded-full blur-[50px]"
+            style="background:radial-gradient(circle, rgba(95,204,160,0.15), transparent 70%);animation:orbDrift3 9s ease-in-out infinite">
+        </div>
+        <!-- Floating particles -->
+        <div class="games-particle"
+            style="left:12%;bottom:25%;width:5px;height:5px;background:rgba(175,240,211,0.6);animation-duration:9s;animation-delay:0s">
+        </div>
+        <div class="games-particle"
+            style="left:28%;bottom:35%;width:3px;height:3px;background:rgba(240,165,0,0.5);animation-duration:12s;animation-delay:2s">
+        </div>
+        <div class="games-particle"
+            style="left:65%;bottom:20%;width:4px;height:4px;background:rgba(95,204,160,0.7);animation-duration:10s;animation-delay:1s">
+        </div>
+        <div class="games-particle"
+            style="left:80%;bottom:40%;width:3px;height:3px;background:rgba(175,240,211,0.5);animation-duration:11s;animation-delay:3s">
+        </div>
+        <div class="games-particle"
+            style="left:50%;bottom:15%;width:6px;height:6px;background:rgba(255,191,63,0.4);animation-duration:8s;animation-delay:4s">
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 mb-12">
+            <h1 class="text-4xl md:text-5xl font-serif italic text-white mb-2 leading-tight">Adventures in Learning</h1>
+            <p class="text-white/80 text-lg font-medium mb-8">Nurturing development through purposeful play.</p>
+            <div class="flex flex-wrap gap-4">
+                <div class="game-glass flex items-center gap-4 px-6 py-4">
+                    <div class="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center"><span
+                            class="material-symbols-outlined text-orange-400"
+                            style="font-variation-settings:'FILL' 1;">local_fire_department</span></div>
+                    <div>
+                        <p class="text-xs font-bold text-white/60 uppercase tracking-widest">Day Streak</p>
+                        <p class="text-2xl font-black text-white">12</p>
+                    </div>
+                </div>
+                <div class="game-glass flex items-center gap-4 px-6 py-4">
+                    <div class="w-12 h-12 bg-yellow-400/20 rounded-full flex items-center justify-center"><span
+                            class="material-symbols-outlined text-yellow-400"
+                            style="font-variation-settings:'FILL' 1;">star</span></div>
+                    <div>
+                        <p class="text-xs font-bold text-white/60 uppercase tracking-widest">Total Sessions</p>
+                        <p class="text-2xl font-black text-white">48</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="px-6 relative z-20 max-w-4xl mx-auto">
+            <div class="flex flex-col gap-10">
+                <div onclick="startGame('MATCH_FACE')" class="game-card reveal delay-1">
+                    <div class="h-48 relative overflow-hidden flex items-center justify-center"
+                        style="background:linear-gradient(135deg,#2d4fcc,#4B7BF5,#7B5BF5)">
+                        <div
+                            class="absolute inset-0 flex items-center justify-center opacity-15 text-[120px] select-none">
+                            😊</div>
+                        <span class="material-symbols-outlined text-white text-6xl relative z-10"
+                            style="filter:drop-shadow(0 4px 16px rgba(0,0,0,0.3))">mood</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2"><span
+                                    class="bg-emerald-950/40 text-emerald-300 border border-emerald-900/40 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Social
+                                    Emotional</span><span class="text-white/60 text-sm">5 min</span></div>
+                            <h3 class="text-2xl font-black font-headline text-white mb-1">Match the Face</h3>
+                            <p class="text-white/80 max-w-md">Help recognize and mirror diverse emotions
+                                through interactive facial mapping.</p>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-white/50 uppercase">Top Score</p>
+                                <p class="text-xl font-black text-white">2,450</p>
+                            </div><button
+                                class="play-btn w-16 h-16 rounded-full flex items-center justify-center text-white"><span
+                                    class="material-symbols-outlined text-3xl relative z-10"
+                                    style="font-variation-settings:'FILL' 1;">play_arrow</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="startGame('ODD_ONE_OUT')" class="game-card reveal delay-2">
+                    <div class="h-48 relative overflow-hidden flex items-center justify-center"
+                        style="background:linear-gradient(135deg,#9c2060,#D4528A,#F05A7B)">
+                        <div
+                            class="absolute inset-0 flex items-center justify-center opacity-15 text-[120px] select-none">
+                            🎨</div>
+                        <span class="material-symbols-outlined text-white text-6xl relative z-10"
+                            style="filter:drop-shadow(0 4px 16px rgba(0,0,0,0.3))">category</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2"><span
+                                    class="bg-rose-950/40 text-rose-300 border border-rose-900/40 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Logic
+                                    & Focus</span><span class="text-white/60 text-sm">8 min</span></div>
+                            <h3 class="text-2xl font-black font-headline text-white mb-1">Odd One Out</h3>
+                            <p class="text-white/80 max-w-md">Develop pattern recognition skills by spotting
+                                the unique shape in the group.</p>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-white/50 uppercase">Top Score</p>
+                                <p class="text-xl font-black text-white">1,820</p>
+                            </div><button
+                                class="play-btn w-16 h-16 rounded-full flex items-center justify-center text-white"><span
+                                    class="material-symbols-outlined text-3xl relative z-10"
+                                    style="font-variation-settings:'FILL' 1;">play_arrow</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="startGame('TAP_COLOR')" class="game-card reveal delay-3">
+                    <div class="h-48 relative overflow-hidden flex items-center justify-center"
+                        style="background:linear-gradient(135deg,#c07800,#F0A500,#F76F4B)">
+                        <div
+                            class="absolute inset-0 flex items-center justify-center opacity-15 text-[120px] select-none">
+                            🌈</div>
+                        <span class="material-symbols-outlined text-white text-6xl relative z-10"
+                            style="filter:drop-shadow(0 4px 16px rgba(0,0,0,0.3))">palette</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2"><span
+                                    class="bg-amber-950/40 text-amber-300 border border-amber-900/40 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Fine
+                                    Motor</span><span class="text-white/60 text-sm">4 min</span></div>
+                            <h3 class="text-2xl font-black font-headline text-white mb-1">Tap the Color</h3>
+                            <p class="text-white/80 max-w-md">Improve reaction time and color identification
+                                with this vibrant tapping challenge.</p>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-white/50 uppercase">Top Score</p>
+                                <p class="text-xl font-black text-white">3,110</p>
+                            </div><button
+                                class="play-btn w-16 h-16 rounded-full flex items-center justify-center text-white"><span
+                                    class="material-symbols-outlined text-3xl relative z-10"
+                                    style="font-variation-settings:'FILL' 1;">play_arrow</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: GAME
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-game" class="page"
+        style="background:linear-gradient(170deg,#020d08 0%,#041f13 25%,#1A5C46 55%,#2EAD7A 80%,#f0faf5 100%);min-height:100vh;">
+        <header class="px-6 py-6 flex flex-col gap-4">
+            <div class="flex justify-between items-center max-w-2xl mx-auto w-full">
+                <button onclick="navigate('games')"
+                    class="back-btn w-12 h-12 flex items-center justify-center rounded-full text-white"><span
+                        class="material-symbols-outlined">arrow_back</span></button>
+                <div class="game-glass-panel px-6 py-2 rounded-full flex items-center gap-3">
+                    <span class="text-white font-bold text-sm uppercase tracking-wider">Round 3/10</span>
+                    <div class="h-4 w-[1px] bg-white/20"></div>
+                    <div class="flex items-center gap-1.5"><span
+                            class="material-symbols-outlined text-secondary-container text-lg"
+                            style="font-variation-settings:'FILL' 1;">stars</span><span
+                            class="text-secondary-container font-black text-sm">120</span></div>
+                </div>
+                <div
+                    class="w-12 h-12 rounded-full border-2 border-white/30 bg-primary-container flex items-center justify-center text-white font-black">
+                    L</div>
+            </div>
+            <div class="w-full max-w-2xl mx-auto px-2">
+                <div class="prog-bar-track">
+                    <div class="prog-bar-fill" style="width:30%"></div>
+                </div>
+            </div>
+        </header>
+        <main class="px-6 pb-24 max-w-2xl mx-auto flex flex-col items-center">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl text-white font-serif italic mb-6 leading-tight">Tap the happy face 😊
+                </h1>
+                <div class="relative">
+                    <div
+                        class="w-40 h-40 md:w-48 md:h-48 rounded-full game-glass-panel flex items-center justify-center shadow-xl border border-white/20">
+                        <span class="text-7xl md:text-8xl drop-shadow-lg">😊</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 w-full">
+                <button
+                    class="aspect-square game-glass-panel rounded-2xl flex items-center justify-center text-5xl hover:bg-white/25 active:scale-95 transition-all border border-white/10">😢</button>
+                <button
+                    class="aspect-square bg-primary-fixed/30 border-2 border-primary-fixed rounded-2xl flex items-center justify-center text-5xl scale-105 shadow-2xl">
+                    <span class="relative">😊<span
+                            class="absolute -top-4 -right-4 w-8 h-8 bg-primary-container rounded-full flex items-center justify-center"><span
+                                class="material-symbols-outlined text-white text-base">check</span></span></span>
+                </button>
+                <button
+                    class="aspect-square game-glass-panel rounded-2xl flex items-center justify-center text-5xl hover:bg-white/25 active:scale-95 transition-all border border-white/10">😡</button>
+                <button
+                    class="aspect-square game-glass-panel rounded-2xl flex items-center justify-center text-5xl hover:bg-white/25 active:scale-95 transition-all border border-white/10">😮</button>
+                <button
+                    class="aspect-square game-glass-panel rounded-2xl flex items-center justify-center text-5xl hover:bg-white/25 active:scale-95 transition-all border border-white/10">😴</button>
+                <button
+                    class="aspect-square game-glass-panel rounded-2xl flex items-center justify-center text-5xl hover:bg-white/25 active:scale-95 transition-all border border-white/10">🤔</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: PROGRESS
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-progress" class="page header-gradient min-h-screen text-white pt-24 pb-32">
+        <div class="max-w-2xl mx-auto px-6 pt-6 space-y-10">
+            <div class="relative z-10 space-y-2 mb-8">
+                <span
+                    class="inline-flex items-center px-3 py-1 bg-primary-fixed/20 text-primary-fixed rounded-full text-xs font-bold tracking-wider uppercase border border-primary-fixed/20">↑
+                    Improving</span>
+                <h1 class="text-3xl font-serif italic text-white leading-tight">Watching your child grow, one small
+                    victory at a time.</h1>
+                <p class="text-white/80 text-sm max-w-[280px]">Weekly progress is showing
+                    steady gains in social interaction and focus.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="stat-card p-4 flex flex-col items-center min-h-[140px] text-center reveal delay-1"><span
+                        class="text-2xl mb-1">🎯</span>
+                    <div class="font-serif text-3xl text-white">84%</div>
+                    <div class="text-[11px] font-bold text-white/70 uppercase tracking-tight">Accuracy</div><span
+                        class="mt-2 text-[10px] font-extrabold text-emerald-300">↑ 4%</span>
+                </div>
+                <div class="stat-card p-4 flex flex-col items-center min-h-[140px] text-center reveal delay-2"><span
+                        class="text-2xl mb-1">⚡</span>
+                    <div class="font-serif text-3xl text-secondary-fixed-dim">1.8s</div>
+                    <div class="text-[11px] font-bold text-white/70 uppercase tracking-tight">Avg Response</div><span
+                        class="mt-2 text-[10px] font-extrabold text-emerald-300">↑ 0.2s</span>
+                </div>
+            </div>
+            <div class="chart-card p-8 space-y-6 reveal">
+                <div class="flex justify-between items-end">
+                    <div>
+                        <h3 class="text-xl font-headline font-extrabold text-white">Activity Level</h3>
+                        <p class="text-sm text-white/70">Minutes in focus games</p>
+                    </div>
+                </div>
+                <div class="flex items-end justify-between h-48 px-2">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-8 h-24 bar-mint-forest"></div><span
+                            class="text-[11px] font-bold text-white/60">M</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-8 h-32 bar-mint-forest opacity-80"></div><span
+                            class="text-[11px] font-bold text-white/60">T</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-8 h-20 bar-mint-forest opacity-60"></div><span
+                            class="text-[11px] font-bold text-white/60">W</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-8 h-40 bar-mint-forest"></div><span
+                            class="text-[11px] font-bold text-white/60">T</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-8 h-28 bar-mint-forest opacity-90"></div><span
+                            class="text-[11px] font-bold text-white/60">F</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-8 h-12 bar-mint-forest opacity-40"></div><span
+                            class="text-[11px] font-bold text-white/60">S</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-8 h-36 bar-mint-forest opacity-80"></div><span
+                            class="text-[11px] font-bold text-white/60">S</span>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-card reveal">
+                <div class="p-8 space-y-4">
+                    <h3 class="text-lg font-headline font-extrabold text-white">Weekly Insights</h3>
+                    <div class="flex items-center justify-between p-4 bg-white/10 rounded-xl">
+                        <div class="flex items-center gap-4"><span class="text-xl">💚</span>
+                            <div>
+                                <p class="text-xs font-bold text-white/60 uppercase">Strongest area</p>
+                                <p class="text-sm font-semibold text-white">Visual Recognition</p>
+                            </div>
+                        </div><span class="material-symbols-outlined text-emerald-300">verified</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-white/10 rounded-xl">
+                        <div class="flex items-center gap-4"><span class="text-xl">🎯</span>
+                            <div>
+                                <p class="text-xs font-bold text-white/60 uppercase">Needs practice</p>
+                                <p class="text-sm font-semibold text-white">Auditory Processing</p>
+                            </div>
+                        </div><span class="material-symbols-outlined text-secondary-fixed-dim">lightbulb</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-white/10 rounded-xl">
+                        <div class="flex items-center gap-4"><span class="text-xl">📈</span>
+                            <div>
+                                <p class="text-xs font-bold text-white/60 uppercase">Trend</p>
+                                <p class="text-sm font-semibold text-white">Steadily Rising</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="navigate('report')"
+                class="amber-cta w-full py-4 text-white font-bold rounded-full shadow-lg flex items-center justify-center gap-3">Download
+                Full Report <span class="material-symbols-outlined">download</span></button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: RESOURCES
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-resources" class="page resources-hero min-h-screen text-white pt-24 pb-32">
+        <div class="max-w-2xl mx-auto px-6 pt-6">
+            <div class="relative z-10 space-y-2 mb-8">
+                <h1 class="font-serif italic text-4xl text-white mb-2 leading-tight">Curated Support</h1>
+                <p class="text-white/80 text-lg max-w-[280px]">Expert-backed guidance for your family's unique path.</p>
+            </div>
+            <h2 class="font-headline font-extrabold text-2xl text-white mb-6">Essential Resources</h2>
+            <div class="space-y-5 mb-10">
+                <div onclick="window.open('https://www.cdc.gov/ncbddd/actearly/milestones/index.html', '_blank')" class="resource-card p-6 flex gap-5 items-start cursor-pointer reveal delay-1">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-900/30 border border-blue-800/20 flex items-center justify-center text-2xl shrink-0">📊
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-headline font-bold text-lg text-white">CDC Milestone Tracker</h3><span
+                                class="bg-blue-950/40 text-blue-300 border border-blue-900/40 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full">CDC Milestone</span>
+                        </div>
+                        <p class="text-white/80 text-sm leading-relaxed">Official CDC developmental milestone checklists from 2 months to 5 years, offering tips and interactive trackers to monitor your child's growth.</p>
+                    </div>
+                </div>
+                <div onclick="window.open('https://www.firstsigns.org/', '_blank')" class="resource-card p-6 flex gap-5 items-start cursor-pointer reveal delay-2">
+                    <div class="w-14 h-14 rounded-2xl bg-pink-900/30 border border-pink-800/20 flex items-center justify-center text-2xl shrink-0">
+                        🩺</div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-headline font-bold text-lg text-white">First Signs Guidelines</h3><span
+                                class="bg-pink-950/40 text-pink-300 border border-pink-900/40 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full">Clinical</span>
+                        </div>
+                        <p class="text-white/80 text-sm leading-relaxed">Dedicated research, parenting checklists, and resources on early detection and intervention for speech delays and developmental disorders.</p>
+                    </div>
+                </div>
+                <div onclick="window.open('https://autismsociety.org/', '_blank')" class="resource-card p-6 flex gap-5 items-start cursor-pointer reveal delay-3">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-900/30 border border-amber-800/20 flex items-center justify-center text-2xl shrink-0">🤝
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-headline font-bold text-lg text-white">Autism Society Support</h3><span
+                                class="bg-amber-950/40 text-amber-300 border border-amber-900/40 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full">Advocacy</span>
+                        </div>
+                        <p class="text-white/80 text-sm leading-relaxed">Connect to local state support networks, community support groups, therapy options, and national resource guides for autistic families.</p>
+                    </div>
+                </div>
+                <div onclick="window.open('https://www.asha.org/public/speech/development/', '_blank')" class="resource-card p-6 flex gap-5 items-start cursor-pointer reveal delay-4">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-900/30 border border-emerald-800/20 flex items-center justify-center text-2xl shrink-0">
+                        🗣️</div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-headline font-bold text-lg text-white">Speech & Language Milestones</h3><span
+                                class="bg-emerald-950/40 text-emerald-300 border border-emerald-900/40 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full">Speech</span>
+                        </div>
+                        <p class="text-white/80 text-sm leading-relaxed">American Speech-Language-Hearing Association (ASHA) official milestones guide for speech, vocabulary, and hearing skills in young toddlers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-card p-6">
+                <h2 class="font-headline font-extrabold text-xl text-white mb-6">Immediate Support</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 bg-white/10 p-4 rounded-xl border border-white/5">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"><span
+                                class="material-symbols-outlined text-secondary-fixed-dim text-xl">phone</span></div>
+                        <div>
+                            <h4 class="font-headline font-bold text-white">Autism Society Helpline</h4>
+                            <p class="text-white font-semibold text-sm"><a href="tel:18003288476" class="text-white hover:underline">1-800-328-8476</a></p>
+                            <p class="text-[11px] text-white/60 font-bold uppercase tracking-tight">Mon–Fri 9am–5pm EST
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/10 p-4 rounded-xl border border-white/5">
+                        <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"><span
+                                class="material-symbols-outlined text-secondary-fixed-dim text-xl">chat_bubble</span></div>
+                        <div>
+                            <h4 class="font-headline font-bold text-white">SAMHSA National Helpline</h4>
+                            <p class="text-white font-semibold text-sm"><a href="tel:18006624357" class="text-white hover:underline">1-800-662-4357</a></p>
+                            <p class="text-[11px] text-white/60 font-bold uppercase tracking-tight">Available 24/7 · Free
+                                &amp; Confidential</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE: REPORT
+     ═══════════════════════════════════════════════════════ -->
+    <div id="page-report" class="page pt-16 pb-32">
+        <div class="max-w-2xl mx-auto px-6 pt-6">
+            <section class="report-header p-8 mb-8 text-white">
+                <div class="relative z-10">
+                    <h1 class="text-3xl font-headline font-extrabold mb-2 italic">Your Report is Ready</h1>
+                    <p class="text-white/80 text-sm font-medium">A comprehensive overview of your child's developmental
+                        journey and screening results.</p>
+                </div>
+            </section>
+            <section class="bg-primary text-white rounded-2xl p-6 mb-8 shadow-xl"
+                style="box-shadow:0 8px 32px rgba(0,68,49,0.30)">
+                <div class="flex justify-between items-start mb-10">
+                    <div class="flex items-center gap-2"><span class="material-symbols-outlined">spa</span><span
+                            class="font-headline font-extrabold tracking-tight">SpectrumCare</span></div>
+                    <div class="text-right">
+                        <p class="text-[10px] uppercase font-bold text-on-primary-container tracking-widest">Report Date
+                        </p>
+                        <p class="font-headline font-bold" id="report-date"></p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary-fixed/20 rounded-full flex items-center justify-center"><span
+                                class="material-symbols-outlined text-primary-fixed">cognition</span></div>
+                        <div class="flex-1">
+                            <h3 class="font-headline font-bold text-sm">Cognitive Milestones</h3>
+                            <p class="text-xs text-white/60">Problem solving and learning patterns</p>
+                        </div><span class="material-symbols-outlined text-emerald-400"
+                            style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary-fixed/20 rounded-full flex items-center justify-center"><span
+                                class="material-symbols-outlined text-primary-fixed">chat_bubble</span></div>
+                        <div class="flex-1">
+                            <h3 class="font-headline font-bold text-sm">Communication</h3>
+                            <p class="text-xs text-white/60">Verbal and non-verbal interactions</p>
+                        </div><span class="material-symbols-outlined text-emerald-400"
+                            style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary-fixed/20 rounded-full flex items-center justify-center"><span
+                                class="material-symbols-outlined text-primary-fixed">groups</span></div>
+                        <div class="flex-1">
+                            <h3 class="font-headline font-bold text-sm">Social-Emotional</h3>
+                            <p class="text-xs text-white/60">Relationship building and regulation</p>
+                        </div><span class="material-symbols-outlined text-emerald-400"
+                            style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary-fixed/20 rounded-full flex items-center justify-center"><span
+                                class="material-symbols-outlined text-primary-fixed">directions_run</span></div>
+                        <div class="flex-1">
+                            <h3 class="font-headline font-bold text-sm">Physical Development</h3>
+                            <p class="text-xs text-white/60">Fine and gross motor assessment</p>
+                        </div><span class="material-symbols-outlined text-emerald-400"
+                            style="font-variation-settings:'FILL' 1;">check_circle</span>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-secondary-fixed/30 rounded-2xl p-6 mb-6 border border-secondary-container/20">
+                <div class="flex gap-4">
+                    <div class="text-3xl">🩺</div>
+                    <div>
+                        <h2 class="font-headline font-extrabold text-secondary mb-1">Bring this to your doctor</h2>
+                        <p class="text-sm text-on-secondary-container leading-relaxed">This digital assessment provides
+                            structured data that helps pediatricians expedite clinical diagnoses.</p>
+                    </div>
+                </div>
+            </section>
+            <section
+                class="bg-primary-fixed/10 rounded-full py-3 px-6 flex items-center gap-3 mb-10 border border-primary-fixed/20">
+                <span class="material-symbols-outlined text-primary text-xl">shield</span>
+                <p class="text-xs font-bold text-primary/80 uppercase tracking-wide">HIPAA Compliant • Data Encrypted •
+                    Shared Only By You</p>
+            </section>
+            <div class="flex flex-col gap-4 mb-12">
+                <button onclick="downloadReport()"
+                    class="amber-cta w-full py-4 px-8 rounded-full shadow-lg font-headline font-extrabold text-lg flex items-center justify-center gap-3">
+                    <span class="material-symbols-outlined" style="font-size:22px">download</span>
+                    Download PDF Report
+                </button>
+                <button onclick="navigate('resources')"
+                    class="w-full bg-transparent border-2 border-primary/20 text-primary font-headline font-extrabold py-4 px-8 rounded-full active:scale-95 transition-all hover:bg-surface-container-low flex items-center justify-center gap-2">Find
+                    a Specialist <span class="material-symbols-outlined">arrow_forward</span></button>
+            </div>
+        </div>
+    </div>
+
+    </div> <!-- #page-container -->
+
+    <!-- ═══════════════════════════════════════════════════════
+     BOTTOM NAV
+     ═══════════════════════════════════════════════════════ -->
+    <nav id="bottom-nav"
+        class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 backdrop-blur-[18px] rounded-t-[32px] shadow-[0px_-12px_32px_rgba(6,26,16,0.08)]">
+        <a onclick="navigate('home')"
+            class="bottom-link flex flex-col items-center justify-center px-5 py-2 rounded-full transition-all cursor-pointer text-emerald-800/40"
+            data-page="home"><span class="material-symbols-outlined">favorite</span><span
+                class="text-[11px] font-bold font-headline uppercase tracking-wider mt-1">Home</span></a>
+        <a onclick="navigate('games')"
+            class="bottom-link flex flex-col items-center justify-center px-5 py-2 rounded-full transition-all cursor-pointer text-emerald-800/40"
+            data-page="games"><span class="material-symbols-outlined">sports_esports</span><span
+                class="text-[11px] font-bold font-headline uppercase tracking-wider mt-1">Games</span></a>
+        <a onclick="navigate('progress')"
+            class="bottom-link flex flex-col items-center justify-center px-5 py-2 rounded-full transition-all cursor-pointer text-emerald-800/40"
+            data-page="progress"><span class="material-symbols-outlined">bar_chart</span><span
+                class="text-[11px] font-bold font-headline uppercase tracking-wider mt-1">Progress</span></a>
+        <a onclick="navigate('resources')"
+            class="bottom-link flex flex-col items-center justify-center px-5 py-2 rounded-full transition-all cursor-pointer text-emerald-800/40"
+            data-page="resources"><span class="material-symbols-outlined">library_books</span><span
+                class="text-[11px] font-bold font-headline uppercase tracking-wider mt-1">Resources</span></a>
+        <!-- Mobile logout (only shown when logged in) -->
+        <a id="mobile-logout-link" onclick="handleLogout()" style="display:none"
+            class="bottom-link flex flex-col items-center justify-center px-5 py-2 rounded-full transition-all cursor-pointer text-red-500">
+            <span class="material-symbols-outlined">logout</span>
+            <span class="text-[11px] font-bold font-headline uppercase tracking-wider mt-1">Logout</span>
+        </a>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT: ROUTER + SCROLL ANIMATIONS
+     ═══════════════════════════════════════════════════════ -->
+    <script>
+        // ══════════════════════════════════════════════════════════
+        //  SPECTRUMCARE — FULLY WIRED FRONTEND
+        // ══════════════════════════════════════════════════════════
+
+        const API_BASE = window.location.origin;
+
+        // ── State ─────────────────────────────────────────────────
+        const state = {
+            childName: "", currentPage: "home", isLoggedIn: false,
+            userEmail: "", token: null, userId: null,
+            childId: null, childAgeMonths: null, childGender: null,
+            screeningAnswers: {},
+            lastScreeningResult: null,
+            children: [],
+        };
+        const HIDE_NAV_PAGES = ["game", "screening", "childinfo", "welcome"];
+        const HIDE_BNAV_PAGES = ["game", "screening", "childinfo", "welcome"];
+
+        // ── API Helper ─────────────────────────────────────────────
+        async function apiCall(endpoint, options = {}) {
+            const headers = { 'Content-Type': 'application/json', ...options.headers };
+            if (state.token) headers['Authorization'] = `Bearer ${state.token}`;
+            try {
+                const res = await fetch(`${API_BASE}${endpoint}`, { ...options, headers });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
+                return data;
+            } catch (err) {
+                if (err.message === 'Failed to fetch') throw new Error('Server not reachable. Is the backend running?');
+                throw err;
+            }
+        }
+
+        // ── Persistent Auth ─────────────────────────────────────────
+        function saveAuth(token, userId, email) {
+            state.token = token; state.userId = userId; state.userEmail = email; state.isLoggedIn = true;
+            localStorage.setItem('sc_token', token);
+            localStorage.setItem('sc_userId', userId);
+            localStorage.setItem('sc_email', email);
+        }
+        function loadAuth() {
+            const token = localStorage.getItem('sc_token');
+            const userId = localStorage.getItem('sc_userId');
+            const email = localStorage.getItem('sc_email');
+            if (token && userId) {
+                state.token = token; state.userId = userId; state.userEmail = email || ''; state.isLoggedIn = true;
+                return true;
+            }
+            return false;
+        }
+        function clearAuth() {
+            state.token = null; state.userId = null; state.isLoggedIn = false;
+            state.childId = null; state.childName = ''; state.children = [];
+            localStorage.removeItem('sc_token'); localStorage.removeItem('sc_userId'); localStorage.removeItem('sc_email');
+        }
+
+        // ── Real M-CHAT-R Questions ─────────────────────────────────
+        const QUESTIONS = [
+            "If you point at something across the room, does your child look at it?",
+            "Have you ever wondered if your child might be deaf?",
+            "Does your child play pretend? (e.g. pretending to talk on the phone)",
+            "Does your child like climbing on things?",
+            "Does your child make unusual finger movements near their eyes?",
+            "Does your child point with one finger to ask for something or to get help?",
+            "Does your child point with one finger to show you something interesting?",
+            "Is your child interested in other children?",
+            "Does your child show you things by bringing them to you or holding them up for you to see?",
+            "Does your child respond to their name when you call?",
+            "When you smile at your child, do they smile back?",
+            "Does your child get upset by everyday sounds?",
+            "Does your child walk?",
+            "Does your child look you in the eye when you are talking to them, playing with them, or dressing them?",
+            "Does your child try to copy what you do?",
+            "If you turn your head to look at something, does your child look around to see what you are looking at?",
+            "Does your child try to get you to watch them?",
+            "Does your child understand when you tell them to do something?",
+            "If something new happens, does your child look at your face to see how you feel about it?",
+            "Does your child like movement activities such as being swung or bounced on your knee?"
+        ];
+        let currentQuestion = 0;
+
+        // ── Scroll-triggered Reveal System ─────────────────────────
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("revealed");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+        function initReveal() {
+            document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale").forEach(el => {
+                el.classList.remove("revealed");
+                revealObserver.observe(el);
+            });
+        }
+
+        // ── Nav scroll effect ───────────────────────────────────────
+        window.addEventListener("scroll", () => {
+            const nav = document.getElementById("top-nav");
+            if (nav) nav.classList.toggle("scrolled", window.scrollY > 20);
+        });
+
+        // ── Main Navigate Function ──────────────────────────────────
+        function navigate(page) {
+            // ── Route protection: screening/welcome requires login ──
+            if ((page === "screening" || page === "welcome") && !state.isLoggedIn) {
+                navigate("childinfo");
+                return;
+            }
+
+            document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+            const target = document.getElementById("page-" + page);
+            if (target) target.classList.add("active");
+
+            state.currentPage = page;
+            window.location.hash = page;
+            window.scrollTo({ top: 0, behavior: "smooth" });
+
+            const topNav = document.getElementById("top-nav");
+            const bottomNav = document.getElementById("bottom-nav");
+            if (topNav) topNav.style.display = HIDE_NAV_PAGES.includes(page) ? "none" : "flex";
+            if (bottomNav) bottomNav.style.display = HIDE_BNAV_PAGES.includes(page) ? "none" : "flex";
+
+            document.querySelectorAll(".nav-link").forEach(link => {
+                const isActive = link.dataset.page === page;
+                link.classList.toggle("text-emerald-900", isActive);
+                link.classList.toggle("font-black", isActive);
+                link.classList.toggle("text-emerald-700/60", !isActive);
+            });
+
+            document.querySelectorAll(".bottom-link").forEach(link => {
+                const isActive = link.dataset.page === page;
+                link.classList.toggle("bg-emerald-100", isActive);
+                link.classList.toggle("text-emerald-900", isActive);
+                link.classList.toggle("text-emerald-800/40", !isActive);
+            });
+
+            // Page-specific inits
+            if (page === "welcome") {
+                const nameSpan = document.getElementById("welcome-child-name");
+                if (nameSpan) nameSpan.textContent = state.childName || "your child";
+            }
+            if (page === "screening") initScreening();
+            if (page === "report") document.getElementById("report-date").textContent = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+            if (page === "childinfo") clearAuthError();
+            if (page === "progress") { initChartHighlight(); loadProgress(); }
+            if (page === "results" && state.lastScreeningResult) renderResults(state.lastScreeningResult);
+
+            // Re-init scroll reveals for new page
+            setTimeout(initReveal, 100);
+        }
+
+        // ── Auth: require login before screening ────────────────────
+        function requireAuthForScreening() {
+            if (state.isLoggedIn) { navigate("screening"); } else { navigate("childinfo"); }
+        }
+        function showAuthError(msg) {
+            const el = document.getElementById("auth-error");
+            document.getElementById("auth-error-text").textContent = msg;
+            el.classList.add("visible");
+        }
+        function clearAuthError() {
+            const el = document.getElementById("auth-error");
+            if (el) el.classList.remove("visible");
+        }
+        function setChildBadge(name) {
+            state.childName = name;
+            const nameEl = document.getElementById("child-name-badge");
+            if (nameEl) nameEl.textContent = name;
+            const badge = document.getElementById("child-badge");
+            if (badge) badge.style.display = "flex";
+            const loginBtn = document.getElementById("login-nav-btn");
+            if (loginBtn) loginBtn.style.display = "none";
+            const mobileLogout = document.getElementById("mobile-logout-link");
+            if (mobileLogout) mobileLogout.style.display = "flex";
+        }
+
+        function handleLogout() {
+            if (!confirm('Are you sure you want to sign out?')) return;
+            clearAuth();
+            const badge = document.getElementById("child-badge");
+            if (badge) badge.style.display = "none";
+            const loginBtn = document.getElementById("login-nav-btn");
+            if (loginBtn) loginBtn.style.display = "";
+            const mobileLogout = document.getElementById("mobile-logout-link");
+            if (mobileLogout) mobileLogout.style.display = "none";
+            navigate('home');
+        }
+
+        async function handleAuthAndScreen(e) {
+            e.preventDefault();
+            clearAuthError();
+            
+            const parentName = document.getElementById("auth-parent-name").value.trim();
+            const email = document.getElementById("auth-email").value.trim();
+            const password = document.getElementById("auth-password").value;
+            const childName = document.getElementById("child-name-input").value.trim();
+            const ageYears = parseInt(document.getElementById("child-age-input").value, 10);
+            
+            // Validation checks
+            if (!parentName) { showAuthError("Parent's name is required."); return; }
+            if (!/^[a-zA-Z\s-]+$/.test(parentName)) { showAuthError("Parent's name must contain only letters."); return; }
+            
+            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/i.test(email)) { showAuthError("Email must be a valid address ending with .com"); return; }
+            
+            if (password.length < 6) { showAuthError("Password must be at least 6 characters."); return; }
+            if (!/[A-Z]/.test(password)) { showAuthError("Password must contain at least one uppercase letter."); return; }
+            if (!/[0-9]/.test(password)) { showAuthError("Password must contain at least one digit."); return; }
+            if (!/[!@#$%^&*(),.?":{}|_+-=[\]\\/]/.test(password)) { showAuthError("Password must contain at least one special character."); return; }
+            
+            if (!childName) { showAuthError("Child's name is required."); return; }
+            if (!/^[a-zA-Z\s-]+$/.test(childName)) { showAuthError("Child's name must contain only letters."); return; }
+            
+            if (isNaN(ageYears) || ageYears < 1 || ageYears > 4) { showAuthError("Child's age must be between 1 and 4 years."); return; }
+            
+            const genderBtn = document.querySelector(".gender-btn.bg-primary-fixed");
+            const gender = genderBtn ? genderBtn.textContent.trim() : null;
+            try {
+                const data = await apiCall('/api/auth/register', { method: 'POST', body: JSON.stringify({ name: parentName, email, password }) });
+                saveAuth(data.token, data.user.id, data.user.email);
+                const child = await apiCall('/api/child', { method: 'POST', body: JSON.stringify({ name: childName, ageMonths: ageYears * 12, gender }) });
+                state.childId = child.id; state.childAgeMonths = child.ageMonths; state.childGender = child.gender;
+                setChildBadge(childName);
+                navigate("welcome");
+            } catch (err) { showAuthError(err.message); }
+        }
+
+        async function handleLoginAndScreen(e) {
+            e.preventDefault();
+            clearAuthError();
+            const email = document.getElementById("login-email").value.trim();
+            const password = document.getElementById("login-password").value;
+            const ageYears = parseInt(document.getElementById("login-age-input").value, 10);
+            
+            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/i.test(email)) { showAuthError("Email must be a valid address ending with .com"); return; }
+            if (isNaN(ageYears) || ageYears < 1 || ageYears > 4) { showAuthError("Child's age must be between 1 and 4 years."); return; }
+            
+            try {
+                const data = await apiCall('/api/auth/login', { method: 'POST', body: JSON.stringify({ email, password }) });
+                saveAuth(data.token, data.user.id, data.user.email);
+                if (data.children && data.children.length > 0) {
+                    const c = data.children[0];
+                    state.childId = c.id; state.childName = c.name; state.childAgeMonths = c.ageMonths;
+                    setChildBadge(c.name);
+                    if (c.screenings && c.screenings.length > 0) {
+                        state.lastScreeningResult = c.screenings[0];
+                    }
+                } else {
+                    const child = await apiCall('/api/child', { method: 'POST', body: JSON.stringify({ name: "your child", ageMonths: ageYears * 12 }) });
+                    state.childId = child.id; state.childAgeMonths = child.ageMonths;
+                    setChildBadge("your child");
+                }
+                navigate("welcome");
+            } catch (err) { showAuthError(err.message); }
+        }
+
+        function switchAuthMode(mode) {
+            clearAuthError();
+            document.getElementById("tab-signup").classList.toggle("active", mode === "signup");
+            document.getElementById("tab-login").classList.toggle("active", mode === "login");
+            document.getElementById("form-signup").classList.toggle("hidden", mode !== "signup");
+            document.getElementById("form-login").classList.toggle("hidden", mode !== "login");
+        }
+
+        // ── Question slide animation ────────────────────────────────
+        function slideQuestion() {
+            const card = document.getElementById("question-card");
+            if (!card) return;
+            card.style.opacity = "0"; card.style.transform = "translateX(32px)";
+            setTimeout(() => { card.style.transition = "opacity 0.35s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1)"; card.style.opacity = "1"; card.style.transform = "translateX(0)"; }, 50);
+        }
+
+        // ── Child Info ──────────────────────────────────────────────
+        function selectGender(btn) {
+            document.querySelectorAll(".gender-btn").forEach(b => {
+                b.classList.remove("bg-primary-fixed", "border-2", "border-primary", "text-primary", "font-black");
+                b.classList.add("bg-surface-container-high", "text-on-surface-variant", "font-bold");
+                b.style.boxShadow = "";
+            });
+            btn.classList.add("bg-primary-fixed", "border-2", "border-primary", "text-primary", "font-black");
+            btn.classList.remove("bg-surface-container-high", "text-on-surface-variant");
+            btn.style.boxShadow = "0 4px 16px rgba(0,68,49,0.20)";
+        }
+
+        function startScreening() {
+            const name = document.getElementById("child-name-input").value.trim() || "your child";
+            setChildBadge(name);
+            navigate("screening");
+        }
+
+        // ── Screening ───────────────────────────────────────────────
+        function initScreening() {
+            currentQuestion = 0;
+            state.screeningAnswers = {};
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = QUESTIONS[currentQuestion];
+            const pct = Math.round((currentQuestion / QUESTIONS.length) * 100);
+            document.getElementById("question-text").textContent = q;
+            document.getElementById("question-child").textContent = "Think about " + (state.childName || "your child") + "'s typical behavior";
+            document.getElementById("q-label").textContent = "Question " + (currentQuestion + 1) + " of " + QUESTIONS.length;
+            document.getElementById("q-pct").textContent = pct + "%";
+            document.getElementById("q-bar").style.width = pct + "%";
+            document.getElementById("screening-name-badge").textContent = "• " + (state.childName || "your child");
+            document.getElementById("encouragement").classList.toggle("hidden", currentQuestion < 10);
+            slideQuestion();
+        }
+
+        async function answerQuestion(answer) {
+            const btn = window.event ? window.event.currentTarget : null;
+            if (btn) { btn.style.transform = "scale(0.95)"; setTimeout(() => btn.style.transform = "", 150); }
+            state.screeningAnswers[`q${currentQuestion + 1}`] = answer;
+            currentQuestion++;
+            if (currentQuestion >= QUESTIONS.length) {
+                await submitScreening();
+            } else {
+                setTimeout(renderQuestion, 200);
+            }
+        }
+
+        async function submitScreening() {
+            try {
+                const result = await apiCall('/api/screening', {
+                    method: 'POST',
+                    body: JSON.stringify({ childId: state.childId, answers: state.screeningAnswers })
+                });
+                state.lastScreeningResult = result;
+                renderResults(result);
+                navigate("results");
+            } catch (err) {
+                console.error('Screening submission error:', err);
+                navigate("results");
+            }
+        }
+
+        function renderResults(result) {
+            if (!result) return;
+            const riskPct = result.riskScore || Math.round((result.mchatScore / 20) * 100);
+            // Update gauge
+            const gaugeAngle = (riskPct / 100) * 180;
+            const r = 40, cx = 50, cy = 45;
+            const startAngle = Math.PI;
+            const endAngle = Math.PI + (gaugeAngle * Math.PI / 180);
+            const x1 = cx + r * Math.cos(startAngle), y1 = cy + r * Math.sin(startAngle);
+            const x2 = cx + r * Math.cos(endAngle), y2 = cy + r * Math.sin(endAngle);
+            const largeArc = gaugeAngle > 180 ? 1 : 0;
+            const gaugePath = document.querySelector('#page-results svg path:nth-child(2)');
+            if (gaugePath) gaugePath.setAttribute('d', `M ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2}`);
+            // Update score text
+            const scoreEl = document.querySelector('#page-results .font-serif.italic.text-5xl');
+            if (scoreEl) scoreEl.textContent = riskPct + '%';
+            // Update risk badge
+            const badgeColors = { LOW: 'emerald', MEDIUM: 'amber', HIGH: 'red' };
+            const badgeEmojis = { LOW: '🌿', MEDIUM: '⚠️', HIGH: '🔴' };
+            const level = result.riskLevel || 'LOW';
+            const c = badgeColors[level] || 'emerald';
+            const badgeEl = document.querySelector('#page-results .inline-flex.items-center');
+            if (badgeEl) {
+                badgeEl.className = `inline-flex items-center gap-2 bg-${c}-50 text-${c}-800 px-4 py-1.5 rounded-full mb-4 border border-${c}-100`;
+                badgeEl.innerHTML = `<span class="text-lg">${badgeEmojis[level]}</span><span class="text-sm font-bold tracking-wide uppercase">${level} Risk</span>`;
+            }
+            // Update description
+            const descMap = { LOW: 'Results indicate a low risk for developmental concerns. Keep encouraging play and social interactions.', MEDIUM: 'Results suggest moderate developmental indicators. Consider scheduling a follow-up with your pediatrician.', HIGH: 'Results indicate significant developmental indicators. We recommend seeking a comprehensive evaluation.' };
+            const descEl = document.querySelector('#page-results .results-card p.text-on-surface');
+            if (descEl) descEl.textContent = descMap[level] || descMap.LOW;
+            // Update SHAP bars
+            if (result.shapValues && result.shapValues.length > 0) {
+                const shapContainer = document.querySelector('#page-results .chart-card .space-y-6');
+                if (shapContainer) {
+                    const top5 = result.shapValues.slice(0, 5);
+                    shapContainer.innerHTML = top5.map(sv => {
+                        const pct = Math.min(Math.abs(sv.value) * 120, 98);
+                        const dir = sv.direction === 'risk' ? 'Concern' : 'Positive';
+                        const cls = sv.direction === 'risk' ? 'bg-amber-100 text-amber-800' : 'bg-primary/10 text-primary';
+                        const barCls = sv.direction === 'risk' ? 'bg-gradient-to-r from-amber-400 to-amber-600' : 'bg-gradient-to-r from-primary to-primary-container';
+                        return `<div><div class="flex justify-between mb-2"><span class="text-sm font-bold">${sv.label}</span><span class="text-[11px] font-bold px-2 py-0.5 ${cls} rounded-full uppercase">${dir}</span></div><div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden"><div class="h-full shap-bar ${barCls} rounded-full" style="width:${pct}%"></div></div></div>`;
+                    }).join('');
+                }
+            }
+        }
+
+        // ══════════════════════════════════════════════════════════
+        //  GAME ENGINES
+        // ══════════════════════════════════════════════════════════
+        let gameState = { type: null, round: 0, score: 0, rounds: [], startTime: 0 };
+
+        const EMOTIONS = [
+            { name: 'Happy', emoji: '😊' }, { name: 'Sad', emoji: '😢' }, { name: 'Angry', emoji: '😡' },
+            { name: 'Surprised', emoji: '😮' }, { name: 'Scared', emoji: '😨' }, { name: 'Disgusted', emoji: '🤢' }
+        ];
+        const ODD_CATEGORIES = [
+            { items: ['🐕','🐈','🐟','🚗'], odd: 3 }, { items: ['🍎','🍌','🍇','🏀'], odd: 3 },
+            { items: ['🔴','🔵','🟢','🐶'], odd: 3 }, { items: ['🚗','🚌','✈️','🍕'], odd: 3 },
+            { items: ['⭐','⭐','⭐','🌙'], odd: 3 }, { items: ['🌸','🌻','🌹','⚽'], odd: 3 },
+            { items: ['🎸','🥁','🎹','🏠'], odd: 3 }, { items: ['👟','👢','🥾','📚'], odd: 3 },
+            { items: ['🍕','🍔','🌮','🎵'], odd: 3 }, { items: ['🐱','🐶','🐰','🍎'], odd: 3 }
+        ];
+        const COLORS = [
+            { name: 'RED', hex: '#EF4444' }, { name: 'BLUE', hex: '#3B82F6' },
+            { name: 'GREEN', hex: '#22C55E' }, { name: 'YELLOW', hex: '#EAB308' },
+            { name: 'PURPLE', hex: '#A855F7' }, { name: 'ORANGE', hex: '#F97316' }
+        ];
+
+        function startGame(type) {
+            gameState = { type, round: 0, score: 0, rounds: [], startTime: 0 };
+            navigate('game');
+            renderGameRound();
+        }
+
+        function renderGameRound() {
+            if (gameState.round >= 10) { endGame(); return; }
+            gameState.startTime = Date.now();
+            const main = document.querySelector('#page-game main');
+            const header = document.querySelector('#page-game .game-glass-panel');
+            if (header) header.querySelector('span').textContent = `Round ${gameState.round + 1}/10`;
+            const scoreEl = document.querySelector('#page-game .text-secondary-container.font-black');
+            if (scoreEl) scoreEl.textContent = gameState.score * 10;
+            const bar = document.querySelector('#page-game .prog-bar-fill');
+            if (bar) bar.style.width = (gameState.round / 10 * 100) + '%';
+
+            if (gameState.type === 'MATCH_FACE') renderMatchFace(main);
+            else if (gameState.type === 'ODD_ONE_OUT') renderOddOneOut(main);
+            else if (gameState.type === 'TAP_COLOR') renderTapColor(main);
+        }
+
+        function renderMatchFace(main) {
+            const target = EMOTIONS[Math.floor(Math.random() * EMOTIONS.length)];
+            const options = [target];
+            while (options.length < 4) {
+                const e = EMOTIONS[Math.floor(Math.random() * EMOTIONS.length)];
+                if (!options.find(o => o.name === e.name)) options.push(e);
+            }
+            options.sort(() => Math.random() - 0.5);
+            main.innerHTML = `
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl text-white font-serif italic mb-6">Find the ${target.name} face</h1>
+                    <div class="w-36 h-36 md:w-44 md:h-44 rounded-full game-glass-panel flex items-center justify-center shadow-xl border border-white/20 mx-auto">
+                        <span class="text-7xl md:text-8xl">${target.emoji}</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 w-full max-w-sm mx-auto">
+                    ${options.map(o => `<button onclick="handleGameAnswer('${o.name}','${target.name}')" class="aspect-square game-glass-panel rounded-2xl flex items-center justify-center text-5xl hover:bg-white/25 active:scale-95 transition-all border border-white/10">${o.emoji}</button>`).join('')}
+                </div>`;
+        }
+
+        function renderOddOneOut(main) {
+            const cat = ODD_CATEGORIES[gameState.round % ODD_CATEGORIES.length];
+            const items = [...cat.items]; const oddIdx = cat.odd;
+            main.innerHTML = `
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl text-white font-serif italic mb-4">Which one is different?</h1>
+                    <p class="text-white/60 text-lg">Tap the odd one out!</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 w-full max-w-sm mx-auto">
+                    ${items.map((item, i) => `<button onclick="handleGameAnswer(${i},${oddIdx})" class="aspect-square game-glass-panel rounded-2xl flex items-center justify-center text-5xl hover:bg-white/25 active:scale-95 transition-all border border-white/10">${item}</button>`).join('')}
+                </div>`;
+        }
+
+        function renderTapColor(main) {
+            const target = COLORS[Math.floor(Math.random() * COLORS.length)];
+            const options = [target];
+            while (options.length < 4) {
+                const c = COLORS[Math.floor(Math.random() * COLORS.length)];
+                if (!options.find(o => o.name === c.name)) options.push(c);
+            }
+            options.sort(() => Math.random() - 0.5);
+            main.innerHTML = `
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-4xl text-white font-serif italic mb-4">Tap the color</h1>
+                    <p class="text-5xl font-black" style="color:${target.hex};text-shadow:0 0 20px ${target.hex}44">${target.name}</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 w-full max-w-sm mx-auto">
+                    ${options.map(o => `<button onclick="handleGameAnswer('${o.name}','${target.name}')" class="aspect-square rounded-2xl active:scale-95 transition-all border-4 border-white/20 hover:border-white/50" style="background:${o.hex};box-shadow:0 8px 32px ${o.hex}44"></button>`).join('')}
+                </div>`;
+        }
+
+        function handleGameAnswer(selected, correct) {
+            const responseTimeMs = Date.now() - gameState.startTime;
+            const isCorrect = String(selected) === String(correct);
+            if (isCorrect) gameState.score++;
+            gameState.rounds.push({ correct: isCorrect, responseTimeMs });
+            gameState.round++;
+            // Brief feedback flash
+            setTimeout(renderGameRound, isCorrect ? 300 : 600);
+        }
+
+        async function endGame() {
+            const main = document.querySelector('#page-game main');
+            const pct = Math.round((gameState.score / 10) * 100);
+            const msg = pct >= 80 ? '🌟 Amazing!' : pct >= 50 ? '👏 Great job!' : '💪 Keep practicing!';
+            main.innerHTML = `
+                <div class="text-center">
+                    <div class="text-8xl mb-6">${pct >= 80 ? '🏆' : '⭐'}</div>
+                    <h1 class="text-4xl text-white font-serif italic mb-4">${msg}</h1>
+                    <p class="text-white/80 text-xl mb-2">Score: ${gameState.score}/10 (${pct}%)</p>
+                    <p class="text-white/60 mb-8">Average response: ${Math.round(gameState.rounds.reduce((s,r)=>s+r.responseTimeMs,0)/10/1000*10)/10}s</p>
+                    <button onclick="navigate('games')" class="amber-cta px-8 py-4 rounded-full text-lg font-bold">Back to Games</button>
+                </div>`;
+            if (state.childId && state.token) {
+                try {
+                    await apiCall('/api/game/session', { method: 'POST', body: JSON.stringify({ childId: state.childId, gameType: gameState.type, rounds: gameState.rounds }) });
+                } catch (e) { console.error('Failed to save game session:', e); }
+            }
+        }
+
+        function initChartHighlight() {
+            const columns = document.querySelectorAll('#page-progress .flex.items-end.justify-between.h-48.px-2 > div');
+            if (columns.length > 0) {
+                const localDay = new Date().getDay();
+                const targetIndex = localDay === 0 ? 6 : localDay - 1;
+                columns.forEach((col, i) => {
+                    const bar = col.querySelector('div');
+                    const label = col.querySelector('span');
+                    if (i === targetIndex) {
+                        if (bar) {
+                            bar.className = 'w-8 h-32 bar-amber-gold';
+                            bar.style.height = '';
+                        }
+                        if (label) label.className = 'text-[11px] font-extrabold text-secondary-fixed-dim';
+                    } else {
+                        if (bar) {
+                            bar.className = 'w-8 h-24 bar-empty';
+                            bar.style.height = '';
+                        }
+                        if (label) label.className = 'text-[11px] font-bold text-white/60';
+                    }
+                });
+            }
+        }
+
+        // ══════════════════════════════════════════════════════════
+        //  PROGRESS DASHBOARD LOADING
+        // ══════════════════════════════════════════════════════════
+        async function loadProgress() {
+            if (!state.childId || !state.token) return;
+            try {
+                const tzOffset = new Date().getTimezoneOffset();
+                const data = await apiCall(`/api/progress/${state.childId}?tzOffset=${tzOffset}`);
+                // Update stat cards
+                const statCards = document.querySelectorAll('#page-progress .stat-card');
+                if (statCards[0]) { statCards[0].querySelector('.font-serif').textContent = data.accuracy + '%'; const ch = statCards[0].querySelector('.text-emerald-300'); if(ch) ch.textContent = (data.accuracyChange >= 0 ? '↑ ' : '↓ ') + Math.abs(data.accuracyChange) + '%'; }
+                if (statCards[1]) { statCards[1].querySelector('.font-serif').textContent = (data.avgResponseTimeMs/1000).toFixed(1) + 's'; }
+                // Update bar chart and day labels dynamically
+                const columns = document.querySelectorAll('#page-progress .flex.items-end.justify-between.h-48.px-2 > div');
+                if (data.dailyActivity && columns.length > 0) {
+                    const maxS = Math.max(...data.dailyActivity.map(d => d.sessions), 1);
+                    const localDay = new Date().getDay();
+                    const targetIndex = localDay === 0 ? 6 : localDay - 1;
+                    data.dailyActivity.forEach((d, i) => {
+                        const col = columns[i];
+                        if (col) {
+                            const bar = col.querySelector('div');
+                            const isToday = i === targetIndex;
+                            if (bar) {
+                                if (d.sessions > 0) {
+                                    bar.style.height = Math.max(d.sessions / maxS * 160, 8) + 'px';
+                                    if (isToday) {
+                                        bar.className = 'w-8 bar-amber-gold';
+                                    } else {
+                                        bar.className = 'w-8 bar-mint-forest';
+                                    }
+                                } else {
+                                    bar.style.height = '8px';
+                                    bar.className = 'w-8 bar-empty';
+                                }
+                            }
+                            const label = col.querySelector('span');
+                            if (label) {
+                                label.textContent = d.day;
+                                if (isToday) {
+                                    label.className = 'text-[11px] font-extrabold text-secondary-fixed-dim';
+                                } else {
+                                    label.className = 'text-[11px] font-bold text-white/60';
+                                }
+                            }
+                        }
+                    });
+                }
+                // Update insights
+                const insights = document.querySelectorAll('#page-progress .summary-card .text-sm.font-semibold');
+                if (insights[0]) insights[0].textContent = data.strongestGame || 'N/A';
+                if (insights[1]) insights[1].textContent = data.weakestGame || 'N/A';
+                // Streak
+                const streakEl = document.querySelector('#page-games .text-2xl.font-black.text-white');
+                if (streakEl) streakEl.textContent = data.streak;
+            } catch (e) { console.error('Progress load error:', e); }
+        }
+
+        // ── PDF Download ────────────────────────────────────────────
+        async function downloadReport() {
+            if (!state.token) { alert('Please sign in first to download a report.'); navigate('childinfo'); return; }
+            if (!state.childId) { alert('No child profile found. Please complete a screening first.'); return; }
+
+            // Update button to show loading
+            const btn = document.querySelector('[onclick="downloadReport()"]');
+            const originalHTML = btn ? btn.innerHTML : '';
+            if (btn) { btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="animation:spin 1s linear infinite">progress_activity</span> Generating PDF...'; btn.disabled = true; }
+
+            try {
+                const res = await fetch(`${API_BASE}/api/report/${state.childId}`, {
+                    headers: { 'Authorization': `Bearer ${state.token}` }
+                });
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({ error: 'Server error' }));
+                    throw new Error(err.error || 'Failed to generate report');
+                }
+                const blob = await res.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `SpectrumCare-Report-${state.childName || 'Child'}.pdf`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                if (btn) { btn.innerHTML = '✅ Downloaded!'; setTimeout(() => { btn.innerHTML = originalHTML; btn.disabled = false; }, 2500); }
+            } catch (e) {
+                console.error('PDF error:', e);
+                alert('Report generation failed: ' + e.message);
+                if (btn) { btn.innerHTML = originalHTML; btn.disabled = false; }
+            }
+        }
+
+        // ── Persistent Session Load ─────────────────────────────────
+        async function loadExistingSession() {
+            if (!loadAuth()) return;
+            try {
+                const children = await apiCall('/api/child');
+                if (children && children.length > 0) {
+                    const c = children[0];
+                    state.childId = c.id; state.childAgeMonths = c.ageMonths; state.childGender = c.gender;
+                    setChildBadge(c.name);
+                    if (c.screenings && c.screenings.length > 0) state.lastScreeningResult = c.screenings[0];
+                }
+            } catch (e) { clearAuth(); }
+        }
+
+        // ── Navigate with page-specific data loading ────────────────
+        const origNavigatePage = navigate;
+
+        // ── Hash routing ────────────────────────────────────────────
+        window.addEventListener("load", async () => {
+            await loadExistingSession();
+            const hash = window.location.hash.replace("#", "") || "home";
+            const validPages = ["home", "childinfo", "screening", "milestones", "results", "games", "game", "progress", "resources", "report"];
+            navigate(validPages.includes(hash) ? hash : "home");
+            initReveal();
+        });
+
+        window.addEventListener("hashchange", () => {
+            const hash = window.location.hash.replace("#", "");
+            if (hash && hash !== state.currentPage) navigate(hash);
+        });
+    </script>
+</body>
+
+</html>

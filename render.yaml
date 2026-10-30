@@ -1,0 +1,28 @@
+services:
+  # Python AI Service
+  - type: web
+    name: spectrumcare-ai
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    rootDir: ai-service
+    plan: free
+
+  # Node.js Backend & Frontend
+  - type: web
+    name: spectrumcare
+    env: node
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npx prisma db push && npm start
+    rootDir: backend
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: file:./dev.db
+      - key: JWT_SECRET
+        generateValue: true
+      - key: AI_SERVICE_URL
+        fromService:
+          name: spectrumcare-ai
+          type: web
+          property: hostport

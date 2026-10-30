@@ -1,0 +1,11 @@
+.git/
+node_modules/
+**/node_modules/
+.env
+**/.env
+*.db
+dist/
+build/
+__pycache__/
+*.pyc
+.DS_Store
