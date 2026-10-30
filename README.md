@@ -39,10 +39,9 @@ SpectrumCare is a full-stack, early-intervention pediatric health platform. It c
 ## 🚀 Quick Start
 
 ### 1. Clone the repository
-```bash
-git clone https://github.com/mariam-1209/spectrumcare.git
-cd spectrumcare
-```
+
+git clone https://github.com/lailasulaiman008/SpectrumCare.git
+cd SpectrumCare
 
 ### 2. Run the AI Service
 ```bash

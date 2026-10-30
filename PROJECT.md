@@ -1,7 +1,6 @@
 # PROJECT.md — SpectrumCare Developer Reference
 
-A reference document for Mariam Noorani. Written assuming you know how to code but are still
-getting comfortable with the full-stack vocabulary. No marketing language, no fluff.
+1. Project documentation for SpectrumCare – Child Development Monitoring Platform.
 
 ---
 

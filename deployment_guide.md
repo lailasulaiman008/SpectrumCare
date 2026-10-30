@@ -34,7 +34,10 @@ git push origin main
 1. In the Render Dashboard, click the **New +** button in the top right corner.
 2. Select **Blueprint** from the dropdown menu.
 3. Select your **`spectrumcare`** repository (if you don't see it, click "Connect repository" or adjust your GitHub app permissions).
-4. Render will automatically detect the [render.yaml](file:///c:/Users/Mariam Noorani/OneDrive/Desktop/spectrumcare/render.yaml) file.
+4. ### 1. Clone the repository
+
+git clone https://github.com/lailasulaiman008/SpectrumCare.git
+cd SpectrumCare
 5. Give your blueprint group a name (e.g., `spectrumcare-group`).
 6. Click **Apply**.
 
