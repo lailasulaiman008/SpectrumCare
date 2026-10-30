@@ -76,6 +76,8 @@ This project is fully configured for continuous deployment on **Render** using a
 
 ---
 
-## 👤 Built By
+## 👩‍💻 Built By
 
-**Mariam** — [github.com/mariam-1209](https://github.com/mariam-1209)
+Laila Sulaiman
+
+[GitHub Profile](https://github.com/lailasulaiman008)
